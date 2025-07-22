@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\private\\widgets\\utils\\inv_widdgetutils.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\projects\\demojob\\intermediate\\build\\win64\\x64\\demojobeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventory\\definitions.inventory.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\utils\\inv_widdgetutils.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_widdgetutils.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

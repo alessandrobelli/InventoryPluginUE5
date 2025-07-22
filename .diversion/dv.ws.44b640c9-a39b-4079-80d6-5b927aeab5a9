@@ -1,0 +1,13 @@
+{
+  "WorkspaceID": "dv.ws.44b640c9-a39b-4079-80d6-5b927aeab5a9",
+  "RepoID": "dv.repo.aa37131d-e6a6-4389-a77b-252799305b28",
+  "Path": "G:\\Projects\\DemoJob",
+  "AccountID": "Google_115051341198210663188",
+  "BranchID": "dv.branch.1",
+  "BranchName": "main",
+  "CommitID": "dv.commit.1",
+  "Paused": false,
+  "ShouldDownload": true,
+  "RepoName": "DemoJob",
+  "ReadOnly": false
+}

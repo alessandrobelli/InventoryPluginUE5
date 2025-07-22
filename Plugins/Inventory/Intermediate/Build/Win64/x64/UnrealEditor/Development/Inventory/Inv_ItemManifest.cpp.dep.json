@@ -1,0 +1,25 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\private\\items\\manifest\\inv_itemmanifest.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\projects\\demojob\\intermediate\\build\\win64\\x64\\demojobeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventory\\definitions.inventory.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\items\\manifest\\inv_itemmanifest.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\types\\inv_gridtypes.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_gridtypes.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\coreuobject\\public\\structutils\\instancedstruct.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\coreuobject\\public\\structutils\\structutils.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\coreuobject\\uht\\instancedstruct.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagcontainer.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\core\\public\\misc\\comparisonutility.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagcontainer.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_itemmanifest.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\items\\inv_inventoryitem.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_inventoryitem.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

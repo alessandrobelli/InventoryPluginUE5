@@ -1,0 +1,34 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\private\\widgets\\utils\\inv_widgetutils.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\projects\\demojob\\intermediate\\build\\win64\\x64\\demojobeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventory\\definitions.inventory.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\utils\\inv_widgetutils.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\components\\widget.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\binding\\states\\widgetstatebitfield.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetstatebitfield.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\fieldnotification\\public\\fieldnotificationdeclaration.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\fieldnotification\\public\\ifieldnotificationclassdescriptor.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\fieldnotification\\public\\inotifyfieldvaluechanged.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\fieldnotification\\uht\\inotifyfieldvaluechanged.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\components\\visual.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\visual.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\components\\slatewrappertypes.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\slatewrappertypes.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\slate\\widgettransform.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgettransform.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\blueprint\\widgetnavigation.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\slatecore\\public\\types\\navigationmetadata.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetnavigation.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widget.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_widgetutils.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\blueprint\\slateblueprintlibrary.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\slateblueprintlibrary.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
