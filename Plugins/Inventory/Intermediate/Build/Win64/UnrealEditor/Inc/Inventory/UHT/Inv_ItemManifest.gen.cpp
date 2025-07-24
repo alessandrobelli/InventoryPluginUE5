@@ -14,7 +14,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInv_ItemManifest() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FInstancedStruct();
+ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 INVENTORY_API UEnum* Z_Construct_UEnum_Inventory_EInv_ItemCategory();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ItemManifest();
@@ -48,6 +50,11 @@ struct Z_Construct_UScriptStruct_FInv_ItemManifest_Statics
 		{ "ModuleRelativePath", "Public/Items/Manifest/Inv_ItemManifest.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemType_MetaData[] = {
+		{ "Categories", "GameItems" },
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Manifest/Inv_ItemManifest.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PickupActorClass_MetaData[] = {
 		{ "Category", "Inventory" },
 		{ "ModuleRelativePath", "Public/Items/Manifest/Inv_ItemManifest.h" },
 	};
@@ -57,6 +64,7 @@ struct Z_Construct_UScriptStruct_FInv_ItemManifest_Statics
 	static const UECodeGen_Private::FBytePropertyParams NewProp_ItemCategory_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_ItemCategory;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_ItemType;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_PickupActorClass;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -69,12 +77,14 @@ const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FInv_Ite
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemCategory_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemCategory = { "ItemCategory", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_ItemManifest, ItemCategory), Z_Construct_UEnum_Inventory_EInv_ItemCategory, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemCategory_MetaData), NewProp_ItemCategory_MetaData) }; // 4149887105
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemType = { "ItemType", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_ItemManifest, ItemType), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemType_MetaData), NewProp_ItemType_MetaData) }; // 133831994
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_PickupActorClass = { "PickupActorClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_ItemManifest, PickupActorClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PickupActorClass_MetaData), NewProp_PickupActorClass_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_Fragments_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_Fragments,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemCategory_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemCategory,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_ItemType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewProp_PickupActorClass,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::StructParams = {
@@ -104,10 +114,10 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_ItemManifest()
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h__Script_Inventory_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FInv_ItemManifest::StaticStruct, Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewStructOps, TEXT("Inv_ItemManifest"), &Z_Registration_Info_UScriptStruct_FInv_ItemManifest, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ItemManifest), 1014103942U) },
+		{ FInv_ItemManifest::StaticStruct, Z_Construct_UScriptStruct_FInv_ItemManifest_Statics::NewStructOps, TEXT("Inv_ItemManifest"), &Z_Registration_Info_UScriptStruct_FInv_ItemManifest, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ItemManifest), 3041624405U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h__Script_Inventory_1651498378(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h__Script_Inventory_3792563209(TEXT("/Script/Inventory"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h__Script_Inventory_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h__Script_Inventory_Statics::ScriptStructInfo),
 	nullptr, 0);

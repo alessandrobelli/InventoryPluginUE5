@@ -43,8 +43,12 @@ INVENTORY_API void FStackChange_DelegateWrapper(const FMulticastScriptDelegate& 
 
 // ********** Begin Class UInv_InventoryComponent **************************************************
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Server_ConsumeItem_Implementation(UInv_InventoryItem* Item); \
+	virtual void Server_DropItem_Implementation(UInv_InventoryItem* Item, int32 StackCount); \
 	virtual void Server_AddStacksToItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount, int32 Remainder); \
 	virtual void Server_AddNewItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount); \
+	DECLARE_FUNCTION(execServer_ConsumeItem); \
+	DECLARE_FUNCTION(execServer_DropItem); \
 	DECLARE_FUNCTION(execServer_AddStacksToItem); \
 	DECLARE_FUNCTION(execServer_AddNewItem); \
 	DECLARE_FUNCTION(execTryAddItem);

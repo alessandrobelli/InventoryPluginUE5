@@ -414,6 +414,7 @@ FInv_SlotAvailabilityResult UInv_InventoryGrid::HasRoomForItem(const FInv_ItemMa
 	// determine how many stacks to fill
 	const int32 MaxStackSize = StackableFragment ? StackableFragment->GetMaxStackSize() : 1;
 	int32 AmountToFill = StackableFragment ? StackableFragment->GetStackCount() : 1;
+	
 
 	TSet<int32> CheckedIndices;
 	for (const auto& GridSlot : GridSlots)
@@ -553,13 +554,9 @@ bool UInv_InventoryGrid::IsInGridBounds(const int32 StartIndex, const FIntPoint&
 }
 
 int32 UInv_InventoryGrid::DetermineFillAmountForSlot(const bool bStackable, const int32 MaxStackSize,
-                                                     const int32 AmountToFill, const UInv_GridSlot* GridSlot)
+                                                     const int32 AmountToFill, const UInv_GridSlot* GridSlot) const
 {
-	// calculate room in the slot
-
 	const int32 RoomInSlot = MaxStackSize - GetStackAmount(GridSlot);
-	// if stackable, need the minimum between amountToFill and RoomInSlot.
-
 	return bStackable ? FMath::Min(AmountToFill, RoomInSlot) : 1;
 }
 
@@ -587,6 +584,7 @@ void UInv_InventoryGrid::AddStacks(const FInv_SlotAvailabilityResult& Result)
 			const auto& GridSlot = GridSlots[Availability.Index];
 			const auto& SlottedItem = SlottedItems.FindChecked(Availability.Index);
 			SlottedItem->UpdateStackCount(GridSlot->GetStackCount() + Availability.AmountToFill);
+			GridSlot->SetStackCount(GridSlot->GetStackCount() + Availability.AmountToFill);
 		}
 		else
 		{
@@ -695,6 +693,16 @@ void UInv_InventoryGrid::CreateItemPopUp(const int32 GridIndex)
 	
 }
 
+void UInv_InventoryGrid::DropItem()
+{
+	if (!IsValid(HoverItem)) return;
+	if (!IsValid(HoverItem->GetInventoryItem())) return;
+
+	InventoryComponent->Server_DropItem(HoverItem->GetInventoryItem(), HoverItem->GetStackCount());
+
+	ClearHoverItem();
+	ShowCursor();
+}
 
 
 bool UInv_InventoryGrid::IsRightClick(const FPointerEvent& MouseEvent) const
@@ -1010,10 +1018,33 @@ void UInv_InventoryGrid::OnPopUpMenuSplit(int32 SplitAmount, int32 Index)
 
 void UInv_InventoryGrid::OnPopUpMenuDrop(int32 Index)
 {
+	UInv_InventoryItem* RightClickedItem = GridSlots[Index]->GetInventoryItem().Get();
+	if (!IsValid(RightClickedItem)) return;	
+
+	PickUp(RightClickedItem, Index);
+	DropItem();
+	
 }
 
 void UInv_InventoryGrid::OnPopUpMenuConsume(int32 Index)
 {
+	UInv_InventoryItem* RightClickedItem = GridSlots[Index]->GetInventoryItem().Get();
+	if (!IsValid(RightClickedItem)) return;
+
+	const int32 UpperLeftIndex = GridSlots[Index]->GetUpperLeftIndex();
+	UInv_GridSlot* UpperLeftGridSlot = GridSlots[UpperLeftIndex];
+	const int32 StackCount = UpperLeftGridSlot->GetStackCount() - 1;
+
+	UpperLeftGridSlot->SetStackCount(StackCount);
+	SlottedItems.FindChecked(UpperLeftIndex)->UpdateStackCount(StackCount);
+
+	InventoryComponent->Server_ConsumeItem(RightClickedItem);
+
+	if (StackCount <= 0)
+	{
+		// if the stack count is 0, remove the item from the grid
+		RemoveItemFromGrid(RightClickedItem, Index);
+	}
 }
 
 

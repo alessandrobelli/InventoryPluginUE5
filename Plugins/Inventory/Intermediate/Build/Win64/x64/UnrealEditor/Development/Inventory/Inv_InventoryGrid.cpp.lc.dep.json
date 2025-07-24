@@ -131,7 +131,9 @@
             "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\inventory\\hoveritem\\inv_hoveritem.h",
             "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_hoveritem.generated.h",
             "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\inventory\\slotteditems\\inv_slotteditem.h",
-            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_slotteditem.generated.h"
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_slotteditem.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\itempopup\\inv_itempopup.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_itempopup.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
