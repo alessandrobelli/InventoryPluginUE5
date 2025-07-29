@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeInv_InventoryStatics() {}
 ENGINE_API UClass* Z_Construct_UClass_APlayerController_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryComponent_NoRegister();
+INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryItem_NoRegister();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryStatics();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryStatics_NoRegister();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_ItemComponent_NoRegister();
@@ -128,6 +129,97 @@ DEFINE_FUNCTION(UInv_InventoryStatics::execGetItemCategoryFromItemComp)
 }
 // ********** End Class UInv_InventoryStatics Function GetItemCategoryFromItemComp *****************
 
+// ********** Begin Class UInv_InventoryStatics Function ItemHovered *******************************
+struct Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics
+{
+	struct Inv_InventoryStatics_eventItemHovered_Parms
+	{
+		APlayerController* PC;
+		UInv_InventoryItem* Item;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/InventoryManagement/Inv_InventoryStatics.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PC;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Item;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::NewProp_PC = { "PC", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_InventoryStatics_eventItemHovered_Parms, PC), Z_Construct_UClass_APlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::NewProp_Item = { "Item", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_InventoryStatics_eventItemHovered_Parms, Item), Z_Construct_UClass_UInv_InventoryItem_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::NewProp_PC,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::NewProp_Item,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_InventoryStatics, nullptr, "ItemHovered", Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::Inv_InventoryStatics_eventItemHovered_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::Inv_InventoryStatics_eventItemHovered_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_InventoryStatics::execItemHovered)
+{
+	P_GET_OBJECT(APlayerController,Z_Param_PC);
+	P_GET_OBJECT(UInv_InventoryItem,Z_Param_Item);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	UInv_InventoryStatics::ItemHovered(Z_Param_PC,Z_Param_Item);
+	P_NATIVE_END;
+}
+// ********** End Class UInv_InventoryStatics Function ItemHovered *********************************
+
+// ********** Begin Class UInv_InventoryStatics Function ItemUnhovered *****************************
+struct Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics
+{
+	struct Inv_InventoryStatics_eventItemUnhovered_Parms
+	{
+		APlayerController* PC;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/InventoryManagement/Inv_InventoryStatics.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PC;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::NewProp_PC = { "PC", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_InventoryStatics_eventItemUnhovered_Parms, PC), Z_Construct_UClass_APlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::NewProp_PC,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_InventoryStatics, nullptr, "ItemUnhovered", Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::Inv_InventoryStatics_eventItemUnhovered_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::Inv_InventoryStatics_eventItemUnhovered_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_InventoryStatics::execItemUnhovered)
+{
+	P_GET_OBJECT(APlayerController,Z_Param_PC);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	UInv_InventoryStatics::ItemUnhovered(Z_Param_PC);
+	P_NATIVE_END;
+}
+// ********** End Class UInv_InventoryStatics Function ItemUnhovered *******************************
+
 // ********** Begin Class UInv_InventoryStatics ****************************************************
 void UInv_InventoryStatics::StaticRegisterNativesUInv_InventoryStatics()
 {
@@ -135,6 +227,8 @@ void UInv_InventoryStatics::StaticRegisterNativesUInv_InventoryStatics()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetInventoryComponent", &UInv_InventoryStatics::execGetInventoryComponent },
 		{ "GetItemCategoryFromItemComp", &UInv_InventoryStatics::execGetItemCategoryFromItemComp },
+		{ "ItemHovered", &UInv_InventoryStatics::execItemHovered },
+		{ "ItemUnhovered", &UInv_InventoryStatics::execItemUnhovered },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -182,6 +276,8 @@ struct Z_Construct_UClass_UInv_InventoryStatics_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UInv_InventoryStatics_GetInventoryComponent, "GetInventoryComponent" }, // 3914320705
 		{ &Z_Construct_UFunction_UInv_InventoryStatics_GetItemCategoryFromItemComp, "GetItemCategoryFromItemComp" }, // 2384041858
+		{ &Z_Construct_UFunction_UInv_InventoryStatics_ItemHovered, "ItemHovered" }, // 2815612186
+		{ &Z_Construct_UFunction_UInv_InventoryStatics_ItemUnhovered, "ItemUnhovered" }, // 1612261093
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -226,10 +322,10 @@ UInv_InventoryStatics::~UInv_InventoryStatics() {}
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h__Script_Inventory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInv_InventoryStatics, UInv_InventoryStatics::StaticClass, TEXT("UInv_InventoryStatics"), &Z_Registration_Info_UClass_UInv_InventoryStatics, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_InventoryStatics), 2020435813U) },
+		{ Z_Construct_UClass_UInv_InventoryStatics, UInv_InventoryStatics::StaticClass, TEXT("UInv_InventoryStatics"), &Z_Registration_Info_UClass_UInv_InventoryStatics, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_InventoryStatics), 1110581762U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h__Script_Inventory_1165860269(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h__Script_Inventory_668257065(TEXT("/Script/Inventory"),
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h__Script_Inventory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h__Script_Inventory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

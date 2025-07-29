@@ -17,7 +17,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin ScriptStruct FInv_ItemManifest *************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h_20_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Manifest_Inv_ItemManifest_h_21_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FInv_ItemManifest_Statics; \
 	static class UScriptStruct* StaticStruct();
 

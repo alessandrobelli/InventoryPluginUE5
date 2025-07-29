@@ -12,8 +12,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInv_SpatialInventory() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryBase();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryGrid_NoRegister();
+INVENTORY_API UClass* Z_Construct_UClass_UInv_ItemDescription_NoRegister();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_SpatialInventory();
 INVENTORY_API UClass* Z_Construct_UClass_UInv_SpatialInventory_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
@@ -253,6 +255,18 @@ struct Z_Construct_UClass_UInv_SpatialInventory_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Widgets/Inventory/Spatial/Inv_SpatialInventory.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemDescriptionClass_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/Spatial/Inv_SpatialInventory.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemDescription_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/Spatial/Inv_SpatialInventory.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DescriptionTimerDelay_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/Spatial/Inv_SpatialInventory.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CanvasPanel;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Switcher;
@@ -262,6 +276,9 @@ struct Z_Construct_UClass_UInv_SpatialInventory_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Button_Equippables;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Button_Consumables;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Button_Craftables;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_ItemDescriptionClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemDescription;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_DescriptionTimerDelay;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -284,6 +301,9 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SpatialIn
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Equippables = { "Button_Equippables", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, Button_Equippables), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Button_Equippables_MetaData), NewProp_Button_Equippables_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Consumables = { "Button_Consumables", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, Button_Consumables), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Button_Consumables_MetaData), NewProp_Button_Consumables_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Craftables = { "Button_Craftables", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, Button_Craftables), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Button_Craftables_MetaData), NewProp_Button_Craftables_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_ItemDescriptionClass = { "ItemDescriptionClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, ItemDescriptionClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UInv_ItemDescription_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemDescriptionClass_MetaData), NewProp_ItemDescriptionClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_ItemDescription = { "ItemDescription", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, ItemDescription), Z_Construct_UClass_UInv_ItemDescription_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemDescription_MetaData), NewProp_ItemDescription_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_DescriptionTimerDelay = { "DescriptionTimerDelay", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SpatialInventory, DescriptionTimerDelay), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DescriptionTimerDelay_MetaData), NewProp_DescriptionTimerDelay_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInv_SpatialInventory_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_CanvasPanel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Switcher,
@@ -293,6 +313,9 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInv_Spat
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Equippables,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Consumables,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_Button_Craftables,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_ItemDescriptionClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_ItemDescription,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SpatialInventory_Statics::NewProp_DescriptionTimerDelay,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UInv_SpatialInventory_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UInv_SpatialInventory_Statics::DependentSingletons[])() = {
@@ -332,10 +355,10 @@ UInv_SpatialInventory::~UInv_SpatialInventory() {}
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_SpatialInventory_h__Script_Inventory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInv_SpatialInventory, UInv_SpatialInventory::StaticClass, TEXT("UInv_SpatialInventory"), &Z_Registration_Info_UClass_UInv_SpatialInventory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_SpatialInventory), 2005730300U) },
+		{ Z_Construct_UClass_UInv_SpatialInventory, UInv_SpatialInventory::StaticClass, TEXT("UInv_SpatialInventory"), &Z_Registration_Info_UClass_UInv_SpatialInventory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_SpatialInventory), 3743341771U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_SpatialInventory_h__Script_Inventory_2455857925(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_SpatialInventory_h__Script_Inventory_1466229958(TEXT("/Script/Inventory"),
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_SpatialInventory_h__Script_Inventory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_SpatialInventory_h__Script_Inventory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -20,6 +20,72 @@ UMG_API UClass* Z_Construct_UClass_UWidget_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Inventory();
 // ********** End Cross Module References **********************************************************
 
+// ********** Begin Class UInv_WidgetUtils Function GetClampedWidgetPosition ***********************
+struct Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics
+{
+	struct Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms
+	{
+		FVector2D Boundary;
+		FVector2D WidgetSize;
+		FVector2D MousePosition;
+		FVector2D ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Widgets/Utils/Inv_WidgetUtils.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Boundary_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WidgetSize_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MousePosition_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Boundary;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_WidgetSize;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_MousePosition;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_Boundary = { "Boundary", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms, Boundary), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Boundary_MetaData), NewProp_Boundary_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_WidgetSize = { "WidgetSize", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms, WidgetSize), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WidgetSize_MetaData), NewProp_WidgetSize_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_MousePosition = { "MousePosition", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms, MousePosition), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MousePosition_MetaData), NewProp_MousePosition_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_Boundary,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_WidgetSize,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_MousePosition,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_WidgetUtils, nullptr, "GetClampedWidgetPosition", Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04C22401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::Inv_WidgetUtils_eventGetClampedWidgetPosition_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_WidgetUtils::execGetClampedWidgetPosition)
+{
+	P_GET_STRUCT_REF(FVector2D,Z_Param_Out_Boundary);
+	P_GET_STRUCT_REF(FVector2D,Z_Param_Out_WidgetSize);
+	P_GET_STRUCT_REF(FVector2D,Z_Param_Out_MousePosition);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FVector2D*)Z_Param__Result=UInv_WidgetUtils::GetClampedWidgetPosition(Z_Param_Out_Boundary,Z_Param_Out_WidgetSize,Z_Param_Out_MousePosition);
+	P_NATIVE_END;
+}
+// ********** End Class UInv_WidgetUtils Function GetClampedWidgetPosition *************************
+
 // ********** Begin Class UInv_WidgetUtils Function GetWidgetPosition ******************************
 struct Z_Construct_UFunction_UInv_WidgetUtils_GetWidgetPosition_Statics
 {
@@ -196,6 +262,7 @@ void UInv_WidgetUtils::StaticRegisterNativesUInv_WidgetUtils()
 {
 	UClass* Class = UInv_WidgetUtils::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "GetClampedWidgetPosition", &UInv_WidgetUtils::execGetClampedWidgetPosition },
 		{ "GetWidgetPosition", &UInv_WidgetUtils::execGetWidgetPosition },
 		{ "GetWidgetSize", &UInv_WidgetUtils::execGetWidgetSize },
 		{ "IsWithinBounds", &UInv_WidgetUtils::execIsWithinBounds },
@@ -244,6 +311,7 @@ struct Z_Construct_UClass_UInv_WidgetUtils_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UInv_WidgetUtils_GetClampedWidgetPosition, "GetClampedWidgetPosition" }, // 2248028290
 		{ &Z_Construct_UFunction_UInv_WidgetUtils_GetWidgetPosition, "GetWidgetPosition" }, // 1398263135
 		{ &Z_Construct_UFunction_UInv_WidgetUtils_GetWidgetSize, "GetWidgetSize" }, // 991486032
 		{ &Z_Construct_UFunction_UInv_WidgetUtils_IsWithinBounds, "IsWithinBounds" }, // 2304087942
@@ -291,10 +359,10 @@ UInv_WidgetUtils::~UInv_WidgetUtils() {}
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h__Script_Inventory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInv_WidgetUtils, UInv_WidgetUtils::StaticClass, TEXT("UInv_WidgetUtils"), &Z_Registration_Info_UClass_UInv_WidgetUtils, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_WidgetUtils), 411771810U) },
+		{ Z_Construct_UClass_UInv_WidgetUtils, UInv_WidgetUtils::StaticClass, TEXT("UInv_WidgetUtils"), &Z_Registration_Info_UClass_UInv_WidgetUtils, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_WidgetUtils), 19114837U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h__Script_Inventory_1038130906(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h__Script_Inventory_3175103720(TEXT("/Script/Inventory"),
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h__Script_Inventory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h__Script_Inventory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

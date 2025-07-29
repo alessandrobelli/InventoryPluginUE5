@@ -18,11 +18,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 class APlayerController;
 class UInv_InventoryComponent;
+class UInv_InventoryItem;
 class UInv_ItemComponent;
 enum class EInv_ItemCategory : uint8;
 
 // ********** Begin Class UInv_InventoryStatics ****************************************************
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execItemUnhovered); \
+	DECLARE_FUNCTION(execItemHovered); \
 	DECLARE_FUNCTION(execGetItemCategoryFromItemComp); \
 	DECLARE_FUNCTION(execGetInventoryComponent);
 

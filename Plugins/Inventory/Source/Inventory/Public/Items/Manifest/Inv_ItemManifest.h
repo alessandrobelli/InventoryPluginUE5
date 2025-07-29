@@ -8,10 +8,11 @@
 #include "Inv_ItemManifest.generated.h"
 
 /**
- * The Item Manifest contains all of the necessary data
+ * The Item Manifest contains all the necessary data
  * for creating a new Inventory item.
  */
 
+class UInv_CompositeBase;
 struct FInv_ItemFragment;
 
 USTRUCT()
@@ -22,6 +23,7 @@ struct INVENTORY_API FInv_ItemManifest
 	UInv_InventoryItem* Manifest(UObject* NewOuter);
 	EInv_ItemCategory GetItemCategory() const { return ItemCategory; }
 	FGameplayTag GetItemType() const { return ItemType; }
+	void AssimilateInventoryFragments(UInv_CompositeBase* Composite) const;
 
 	template <typename T> requires std::derived_from<T, FInv_ItemFragment>
 	const T* GetFragmentOfTypeWithTag(const FGameplayTag& FragmentTag) const;
@@ -32,6 +34,9 @@ struct INVENTORY_API FInv_ItemManifest
 
 	template <typename T> requires std::derived_from<T, FInv_ItemFragment>
 	T* GetFragmentOfTypeMutable();
+
+	template<typename T> requires std::derived_from<T, FInv_ItemFragment>
+	TArray<const T*> GetAllFragramentsOfType() const;
 
 	void SpawnPickupActor(const UObject* WorldContextObject, const FVector& SpawnLocation, const FRotator& SpawnRotation);
 	
@@ -96,4 +101,22 @@ T* FInv_ItemManifest::GetFragmentOfTypeMutable()
 
 
 		return nullptr;
+}
+
+// This function returns all fragments of type T, which is derived from FInv_ItemFragment.
+// It iterates through the Fragments array, checks if each fragment can be cast to type
+
+template <typename T> requires std::derived_from<T, FInv_ItemFragment>
+TArray<const T*> FInv_ItemManifest::GetAllFragramentsOfType() const
+{
+		TArray<const T*> Result;
+		for (const TInstancedStruct<FInv_ItemFragment>& Fragment: Fragments)
+		{
+			if (const T* FragmentPtr = Fragment.GetPtr<T>())
+			{
+				Result.Add(FragmentPtr);
+			}
+		}
+
+		return Result;
 }

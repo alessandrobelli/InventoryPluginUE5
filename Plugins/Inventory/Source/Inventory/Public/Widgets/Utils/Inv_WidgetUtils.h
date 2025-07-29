@@ -26,6 +26,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Inventory")
 	static bool IsWithinBounds(const FVector2D& BoundaryPos, const FVector2D WidgetSize, const FVector2D& MousePos);
 
+	UFUNCTION(BlueprintCallable, Category="Inventory")
+	static FVector2D GetClampedWidgetPosition(const FVector2D& Boundary, const FVector2D& WidgetSize, const FVector2D& MousePosition);
+
 	static int32 GetIndexFromPosition(const FIntPoint& Position, int32 Columns);
 	static FIntPoint GetPositionFromIndex(const int32 Index,const int32 Columns);
 	

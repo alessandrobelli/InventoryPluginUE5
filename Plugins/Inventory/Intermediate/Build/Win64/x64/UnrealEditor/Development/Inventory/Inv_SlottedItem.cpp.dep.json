@@ -105,7 +105,11 @@
             "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\components\\textblock.h",
             "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\umg\\public\\components\\textwidgettypes.h",
             "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textwidgettypes.generated.h",
-            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textblock.generated.h"
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textblock.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\inventorymanagement\\inv_inventorystatics.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\utils\\inv_widgetutils.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_widgetutils.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_inventorystatics.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

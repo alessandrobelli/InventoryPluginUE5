@@ -20,6 +20,8 @@ class INVENTORY_API UInv_SlottedItem : public UUserWidget
 public:
 
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual void NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual void NativeOnMouseLeave(const FPointerEvent& InMouseEvent) override;
 	
 	bool IsStackable() const { return bIsStackable; }
 	void SetIsStackable(bool bInIsStackable) { bIsStackable = bInIsStackable; }

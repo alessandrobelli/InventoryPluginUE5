@@ -20,6 +20,7 @@ class UWidget;
 
 // ********** Begin Class UInv_WidgetUtils *********************************************************
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Utils_Inv_WidgetUtils_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetClampedWidgetPosition); \
 	DECLARE_FUNCTION(execIsWithinBounds); \
 	DECLARE_FUNCTION(execGetWidgetSize); \
 	DECLARE_FUNCTION(execGetWidgetPosition);
