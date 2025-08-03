@@ -7,24 +7,33 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "Items/Fragments/Inv_ItemFragment.h"
 #include "GameplayTagContainer.h"
+#include "StructUtils/InstancedStruct.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 void EmptyLinkFunctionForGeneratedCodeInv_ItemFragment() {}
 
 // ********** Begin Cross Module References ********************************************************
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FInstancedStruct();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FIntPoint();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
+INVENTORY_API UClass* Z_Construct_UClass_AInv_EquipActor_NoRegister();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ConsumableFragment();
+INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ConsumeModifier();
+INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_EquipmentFragment();
+INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_EquipModifier();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_GridFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_HealthPotionFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ImageFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_InventoryItemFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ItemFragment();
+INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_LabeledNumberFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_ManaPotionFragment();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_StackableFragment();
+INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_StrengthModifier();
 INVENTORY_API UScriptStruct* Z_Construct_UScriptStruct_FInv_TextFragment();
 UPackage* Z_Construct_UPackage__Script_Inventory();
 // ********** End Cross Module References **********************************************************
@@ -333,6 +342,124 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_TextFragment()
 }
 // ********** End ScriptStruct FInv_TextFragment ***************************************************
 
+// ********** Begin ScriptStruct FInv_LabeledNumberFragment ****************************************
+static_assert(std::is_polymorphic<FInv_LabeledNumberFragment>() == std::is_polymorphic<FInv_InventoryItemFragment>(), "USTRUCT FInv_LabeledNumberFragment cannot be polymorphic unless super FInv_InventoryItemFragment is polymorphic");
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment;
+class UScriptStruct* FInv_LabeledNumberFragment::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInv_LabeledNumberFragment, (UObject*)Z_Construct_UPackage__Script_Inventory(), TEXT("Inv_LabeledNumberFragment"));
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Text_Label_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Min_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Max_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bCollapseLabel_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bCollapseValue_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MinFractionalDigits_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxFractionalDigits_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FTextPropertyParams NewProp_Text_Label;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Value;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Min;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_Max;
+	static void NewProp_bCollapseLabel_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bCollapseLabel;
+	static void NewProp_bCollapseValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bCollapseValue;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MinFractionalDigits;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_MaxFractionalDigits;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_LabeledNumberFragment>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Text_Label = { "Text_Label", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, Text_Label), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_Label_MetaData), NewProp_Text_Label_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Value = { "Value", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, Value), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Value_MetaData), NewProp_Value_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Min = { "Min", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, Min), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Min_MetaData), NewProp_Min_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Max = { "Max", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, Max), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Max_MetaData), NewProp_Max_MetaData) };
+void Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseLabel_SetBit(void* Obj)
+{
+	((FInv_LabeledNumberFragment*)Obj)->bCollapseLabel = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseLabel = { "bCollapseLabel", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FInv_LabeledNumberFragment), &Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseLabel_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bCollapseLabel_MetaData), NewProp_bCollapseLabel_MetaData) };
+void Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseValue_SetBit(void* Obj)
+{
+	((FInv_LabeledNumberFragment*)Obj)->bCollapseValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseValue = { "bCollapseValue", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FInv_LabeledNumberFragment), &Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseValue_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bCollapseValue_MetaData), NewProp_bCollapseValue_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_MinFractionalDigits = { "MinFractionalDigits", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, MinFractionalDigits), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MinFractionalDigits_MetaData), NewProp_MinFractionalDigits_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_MaxFractionalDigits = { "MaxFractionalDigits", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_LabeledNumberFragment, MaxFractionalDigits), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxFractionalDigits_MetaData), NewProp_MaxFractionalDigits_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Text_Label,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Value,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Min,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_Max,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseLabel,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_bCollapseValue,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_MinFractionalDigits,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewProp_MaxFractionalDigits,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
+	Z_Construct_UScriptStruct_FInv_InventoryItemFragment,
+	&NewStructOps,
+	"Inv_LabeledNumberFragment",
+	Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::PropPointers),
+	sizeof(FInv_LabeledNumberFragment),
+	alignof(FInv_LabeledNumberFragment),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FInv_LabeledNumberFragment()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.InnerSingleton, Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment.InnerSingleton;
+}
+// ********** End ScriptStruct FInv_LabeledNumberFragment ******************************************
+
 // ********** Begin ScriptStruct FInv_StackableFragment ********************************************
 static_assert(std::is_polymorphic<FInv_StackableFragment>() == std::is_polymorphic<FInv_ItemFragment>(), "USTRUCT FInv_StackableFragment cannot be polymorphic unless super FInv_ItemFragment is polymorphic");
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_StackableFragment;
@@ -405,8 +532,62 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_StackableFragment()
 }
 // ********** End ScriptStruct FInv_StackableFragment **********************************************
 
+// ********** Begin ScriptStruct FInv_ConsumeModifier **********************************************
+static_assert(std::is_polymorphic<FInv_ConsumeModifier>() == std::is_polymorphic<FInv_LabeledNumberFragment>(), "USTRUCT FInv_ConsumeModifier cannot be polymorphic unless super FInv_LabeledNumberFragment is polymorphic");
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier;
+class UScriptStruct* FInv_ConsumeModifier::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInv_ConsumeModifier, (UObject*)Z_Construct_UPackage__Script_Inventory(), TEXT("Inv_ConsumeModifier"));
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Consume fragments\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Consume fragments" },
+#endif
+	};
+#endif // WITH_METADATA
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_ConsumeModifier>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
+	Z_Construct_UScriptStruct_FInv_LabeledNumberFragment,
+	&NewStructOps,
+	"Inv_ConsumeModifier",
+	nullptr,
+	0,
+	sizeof(FInv_ConsumeModifier),
+	alignof(FInv_ConsumeModifier),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FInv_ConsumeModifier()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.InnerSingleton, Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier.InnerSingleton;
+}
+// ********** End ScriptStruct FInv_ConsumeModifier ************************************************
+
 // ********** Begin ScriptStruct FInv_ConsumableFragment *******************************************
-static_assert(std::is_polymorphic<FInv_ConsumableFragment>() == std::is_polymorphic<FInv_ItemFragment>(), "USTRUCT FInv_ConsumableFragment cannot be polymorphic unless super FInv_ItemFragment is polymorphic");
+static_assert(std::is_polymorphic<FInv_ConsumableFragment>() == std::is_polymorphic<FInv_InventoryItemFragment>(), "USTRUCT FInv_ConsumableFragment cannot be polymorphic unless super FInv_InventoryItemFragment is polymorphic");
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_ConsumableFragment;
 class UScriptStruct* FInv_ConsumableFragment::StaticStruct()
 {
@@ -423,20 +604,36 @@ struct Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics
 		{ "BlueprintType", "true" },
 		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ConsumeModifiers_MetaData[] = {
+		{ "BaseStruct", "/Script/Inventory.Inv_ConsumeModifier" },
+		{ "Category", "Inventory" },
+		{ "ExcludeBaseStruct", "" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ConsumeModifiers_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ConsumeModifiers;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_ConsumableFragment>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewProp_ConsumeModifiers_Inner = { "ConsumeModifiers", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FInstancedStruct, METADATA_PARAMS(0, nullptr) }; // 1627169465
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewProp_ConsumeModifiers = { "ConsumeModifiers", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_ConsumableFragment, ConsumeModifiers), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ConsumeModifiers_MetaData), NewProp_ConsumeModifiers_MetaData) }; // 1627169465
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewProp_ConsumeModifiers_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewProp_ConsumeModifiers,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
-	Z_Construct_UScriptStruct_FInv_ItemFragment,
+	Z_Construct_UScriptStruct_FInv_InventoryItemFragment,
 	&NewStructOps,
 	"Inv_ConsumableFragment",
-	nullptr,
-	0,
+	Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::PropPointers),
 	sizeof(FInv_ConsumableFragment),
 	alignof(FInv_ConsumableFragment),
 	RF_Public|RF_Transient|RF_MarkAsNative,
@@ -454,7 +651,7 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_ConsumableFragment()
 // ********** End ScriptStruct FInv_ConsumableFragment *********************************************
 
 // ********** Begin ScriptStruct FInv_HealthPotionFragment *****************************************
-static_assert(std::is_polymorphic<FInv_HealthPotionFragment>() == std::is_polymorphic<FInv_ConsumableFragment>(), "USTRUCT FInv_HealthPotionFragment cannot be polymorphic unless super FInv_ConsumableFragment is polymorphic");
+static_assert(std::is_polymorphic<FInv_HealthPotionFragment>() == std::is_polymorphic<FInv_ConsumeModifier>(), "USTRUCT FInv_HealthPotionFragment cannot be polymorphic unless super FInv_ConsumeModifier is polymorphic");
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_HealthPotionFragment;
 class UScriptStruct* FInv_HealthPotionFragment::StaticStruct()
 {
@@ -471,31 +668,20 @@ struct Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics
 		{ "BlueprintType", "true" },
 		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HealAmount_MetaData[] = {
-		{ "Category", "Inventory" },
-		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
-	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_HealAmount;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_HealthPotionFragment>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::NewProp_HealAmount = { "HealAmount", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_HealthPotionFragment, HealAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HealAmount_MetaData), NewProp_HealAmount_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::NewProp_HealAmount,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
-	Z_Construct_UScriptStruct_FInv_ConsumableFragment,
+	Z_Construct_UScriptStruct_FInv_ConsumeModifier,
 	&NewStructOps,
 	"Inv_HealthPotionFragment",
-	Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::PropPointers,
-	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::PropPointers),
+	nullptr,
+	0,
 	sizeof(FInv_HealthPotionFragment),
 	alignof(FInv_HealthPotionFragment),
 	RF_Public|RF_Transient|RF_MarkAsNative,
@@ -513,7 +699,7 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_HealthPotionFragment()
 // ********** End ScriptStruct FInv_HealthPotionFragment *******************************************
 
 // ********** Begin ScriptStruct FInv_ManaPotionFragment *******************************************
-static_assert(std::is_polymorphic<FInv_ManaPotionFragment>() == std::is_polymorphic<FInv_ConsumableFragment>(), "USTRUCT FInv_ManaPotionFragment cannot be polymorphic unless super FInv_ConsumableFragment is polymorphic");
+static_assert(std::is_polymorphic<FInv_ManaPotionFragment>() == std::is_polymorphic<FInv_ConsumeModifier>(), "USTRUCT FInv_ManaPotionFragment cannot be polymorphic unless super FInv_ConsumeModifier is polymorphic");
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_ManaPotionFragment;
 class UScriptStruct* FInv_ManaPotionFragment::StaticStruct()
 {
@@ -530,31 +716,20 @@ struct Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics
 		{ "BlueprintType", "true" },
 		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ManaAmount_MetaData[] = {
-		{ "Category", "Inventory" },
-		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
-	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FFloatPropertyParams NewProp_ManaAmount;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_ManaPotionFragment>();
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::NewProp_ManaAmount = { "ManaAmount", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_ManaPotionFragment, ManaAmount), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ManaAmount_MetaData), NewProp_ManaAmount_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::NewProp_ManaAmount,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
-	Z_Construct_UScriptStruct_FInv_ConsumableFragment,
+	Z_Construct_UScriptStruct_FInv_ConsumeModifier,
 	&NewStructOps,
 	"Inv_ManaPotionFragment",
-	Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::PropPointers,
-	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::PropPointers),
+	nullptr,
+	0,
 	sizeof(FInv_ManaPotionFragment),
 	alignof(FInv_ManaPotionFragment),
 	RF_Public|RF_Transient|RF_MarkAsNative,
@@ -571,6 +746,193 @@ UScriptStruct* Z_Construct_UScriptStruct_FInv_ManaPotionFragment()
 }
 // ********** End ScriptStruct FInv_ManaPotionFragment *********************************************
 
+// ********** Begin ScriptStruct FInv_EquipModifier ************************************************
+static_assert(std::is_polymorphic<FInv_EquipModifier>() == std::is_polymorphic<FInv_LabeledNumberFragment>(), "USTRUCT FInv_EquipModifier cannot be polymorphic unless super FInv_LabeledNumberFragment is polymorphic");
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_EquipModifier;
+class UScriptStruct* FInv_EquipModifier::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_EquipModifier.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FInv_EquipModifier.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInv_EquipModifier, (UObject*)Z_Construct_UPackage__Script_Inventory(), TEXT("Inv_EquipModifier"));
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_EquipModifier.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FInv_EquipModifier_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Equipment\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Equipment" },
+#endif
+	};
+#endif // WITH_METADATA
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_EquipModifier>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_EquipModifier_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
+	Z_Construct_UScriptStruct_FInv_LabeledNumberFragment,
+	&NewStructOps,
+	"Inv_EquipModifier",
+	nullptr,
+	0,
+	sizeof(FInv_EquipModifier),
+	alignof(FInv_EquipModifier),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_EquipModifier_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInv_EquipModifier_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FInv_EquipModifier()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_EquipModifier.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FInv_EquipModifier.InnerSingleton, Z_Construct_UScriptStruct_FInv_EquipModifier_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_EquipModifier.InnerSingleton;
+}
+// ********** End ScriptStruct FInv_EquipModifier **************************************************
+
+// ********** Begin ScriptStruct FInv_StrengthModifier *********************************************
+static_assert(std::is_polymorphic<FInv_StrengthModifier>() == std::is_polymorphic<FInv_EquipModifier>(), "USTRUCT FInv_StrengthModifier cannot be polymorphic unless super FInv_EquipModifier is polymorphic");
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_StrengthModifier;
+class UScriptStruct* FInv_StrengthModifier::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInv_StrengthModifier, (UObject*)Z_Construct_UPackage__Script_Inventory(), TEXT("Inv_StrengthModifier"));
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+#endif // WITH_METADATA
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_StrengthModifier>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
+	Z_Construct_UScriptStruct_FInv_EquipModifier,
+	&NewStructOps,
+	"Inv_StrengthModifier",
+	nullptr,
+	0,
+	sizeof(FInv_StrengthModifier),
+	alignof(FInv_StrengthModifier),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FInv_StrengthModifier()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.InnerSingleton, Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_StrengthModifier.InnerSingleton;
+}
+// ********** End ScriptStruct FInv_StrengthModifier ***********************************************
+
+// ********** Begin ScriptStruct FInv_EquipmentFragment ********************************************
+static_assert(std::is_polymorphic<FInv_EquipmentFragment>() == std::is_polymorphic<FInv_InventoryItemFragment>(), "USTRUCT FInv_EquipmentFragment cannot be polymorphic unless super FInv_InventoryItemFragment is polymorphic");
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment;
+class UScriptStruct* FInv_EquipmentFragment::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInv_EquipmentFragment, (UObject*)Z_Construct_UPackage__Script_Inventory(), TEXT("Inv_EquipmentFragment"));
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.OuterSingleton;
+}
+struct Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EquipModifiers_MetaData[] = {
+		{ "BaseStruct", "/Script/Inventory.Inv_EquipModifier" },
+		{ "Category", "Inventory" },
+		{ "ExcludeBaseStruct", "" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EquipActorClass_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SocketAttachPoint_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EquipmentType_MetaData[] = {
+		{ "Category", "Inventory" },
+		{ "ModuleRelativePath", "Public/Items/Fragments/Inv_ItemFragment.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_EquipModifiers_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_EquipModifiers;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_EquipActorClass;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_SocketAttachPoint;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_EquipmentType;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInv_EquipmentFragment>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipModifiers_Inner = { "EquipModifiers", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FInstancedStruct, METADATA_PARAMS(0, nullptr) }; // 1627169465
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipModifiers = { "EquipModifiers", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_EquipmentFragment, EquipModifiers), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquipModifiers_MetaData), NewProp_EquipModifiers_MetaData) }; // 1627169465
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipActorClass = { "EquipActorClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_EquipmentFragment, EquipActorClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AInv_EquipActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquipActorClass_MetaData), NewProp_EquipActorClass_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_SocketAttachPoint = { "SocketAttachPoint", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_EquipmentFragment, SocketAttachPoint), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SocketAttachPoint_MetaData), NewProp_SocketAttachPoint_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipmentType = { "EquipmentType", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInv_EquipmentFragment, EquipmentType), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquipmentType_MetaData), NewProp_EquipmentType_MetaData) }; // 133831994
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipModifiers_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipModifiers,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipActorClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_SocketAttachPoint,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewProp_EquipmentType,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_Inventory,
+	Z_Construct_UScriptStruct_FInv_InventoryItemFragment,
+	&NewStructOps,
+	"Inv_EquipmentFragment",
+	Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::PropPointers,
+	UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::PropPointers),
+	sizeof(FInv_EquipmentFragment),
+	alignof(FInv_EquipmentFragment),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FInv_EquipmentFragment()
+{
+	if (!Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.InnerSingleton, Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment.InnerSingleton;
+}
+// ********** End ScriptStruct FInv_EquipmentFragment **********************************************
+
 // ********** Begin Registration *******************************************************************
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Fragments_Inv_ItemFragment_h__Script_Inventory_Statics
 {
@@ -580,13 +942,18 @@ struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inven
 		{ FInv_GridFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_GridFragment_Statics::NewStructOps, TEXT("Inv_GridFragment"), &Z_Registration_Info_UScriptStruct_FInv_GridFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_GridFragment), 2545756036U) },
 		{ FInv_ImageFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_ImageFragment_Statics::NewStructOps, TEXT("Inv_ImageFragment"), &Z_Registration_Info_UScriptStruct_FInv_ImageFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ImageFragment), 3036929295U) },
 		{ FInv_TextFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_TextFragment_Statics::NewStructOps, TEXT("Inv_TextFragment"), &Z_Registration_Info_UScriptStruct_FInv_TextFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_TextFragment), 931660015U) },
+		{ FInv_LabeledNumberFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_LabeledNumberFragment_Statics::NewStructOps, TEXT("Inv_LabeledNumberFragment"), &Z_Registration_Info_UScriptStruct_FInv_LabeledNumberFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_LabeledNumberFragment), 68500857U) },
 		{ FInv_StackableFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_StackableFragment_Statics::NewStructOps, TEXT("Inv_StackableFragment"), &Z_Registration_Info_UScriptStruct_FInv_StackableFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_StackableFragment), 1840590513U) },
-		{ FInv_ConsumableFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewStructOps, TEXT("Inv_ConsumableFragment"), &Z_Registration_Info_UScriptStruct_FInv_ConsumableFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ConsumableFragment), 3794370278U) },
-		{ FInv_HealthPotionFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::NewStructOps, TEXT("Inv_HealthPotionFragment"), &Z_Registration_Info_UScriptStruct_FInv_HealthPotionFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_HealthPotionFragment), 1716301268U) },
-		{ FInv_ManaPotionFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::NewStructOps, TEXT("Inv_ManaPotionFragment"), &Z_Registration_Info_UScriptStruct_FInv_ManaPotionFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ManaPotionFragment), 2025957222U) },
+		{ FInv_ConsumeModifier::StaticStruct, Z_Construct_UScriptStruct_FInv_ConsumeModifier_Statics::NewStructOps, TEXT("Inv_ConsumeModifier"), &Z_Registration_Info_UScriptStruct_FInv_ConsumeModifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ConsumeModifier), 1505686392U) },
+		{ FInv_ConsumableFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_ConsumableFragment_Statics::NewStructOps, TEXT("Inv_ConsumableFragment"), &Z_Registration_Info_UScriptStruct_FInv_ConsumableFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ConsumableFragment), 2862455537U) },
+		{ FInv_HealthPotionFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_HealthPotionFragment_Statics::NewStructOps, TEXT("Inv_HealthPotionFragment"), &Z_Registration_Info_UScriptStruct_FInv_HealthPotionFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_HealthPotionFragment), 248010701U) },
+		{ FInv_ManaPotionFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_ManaPotionFragment_Statics::NewStructOps, TEXT("Inv_ManaPotionFragment"), &Z_Registration_Info_UScriptStruct_FInv_ManaPotionFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_ManaPotionFragment), 1941754996U) },
+		{ FInv_EquipModifier::StaticStruct, Z_Construct_UScriptStruct_FInv_EquipModifier_Statics::NewStructOps, TEXT("Inv_EquipModifier"), &Z_Registration_Info_UScriptStruct_FInv_EquipModifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_EquipModifier), 4161311634U) },
+		{ FInv_StrengthModifier::StaticStruct, Z_Construct_UScriptStruct_FInv_StrengthModifier_Statics::NewStructOps, TEXT("Inv_StrengthModifier"), &Z_Registration_Info_UScriptStruct_FInv_StrengthModifier, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_StrengthModifier), 3794266459U) },
+		{ FInv_EquipmentFragment::StaticStruct, Z_Construct_UScriptStruct_FInv_EquipmentFragment_Statics::NewStructOps, TEXT("Inv_EquipmentFragment"), &Z_Registration_Info_UScriptStruct_FInv_EquipmentFragment, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInv_EquipmentFragment), 1789478632U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Fragments_Inv_ItemFragment_h__Script_Inventory_531327087(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Fragments_Inv_ItemFragment_h__Script_Inventory_3069293457(TEXT("/Script/Inventory"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Fragments_Inv_ItemFragment_h__Script_Inventory_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Fragments_Inv_ItemFragment_h__Script_Inventory_Statics::ScriptStructInfo),
 	nullptr, 0);

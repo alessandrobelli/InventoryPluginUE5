@@ -22,6 +22,7 @@ struct FPointerEvent;
 
 // ********** Begin Class UInv_InventoryGrid *******************************************************
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnInventoryMenuToggled); \
 	DECLARE_FUNCTION(execOnPopUpMenuConsume); \
 	DECLARE_FUNCTION(execOnPopUpMenuDrop); \
 	DECLARE_FUNCTION(execOnPopUpMenuSplit); \

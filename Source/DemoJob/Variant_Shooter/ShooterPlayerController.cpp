@@ -9,25 +9,40 @@
 #include "GameFramework/PlayerStart.h"
 #include "ShooterCharacter.h"
 #include "ShooterBulletCounterUI.h"
+#include "ShooterGameMode.h"
+#include "ShooterUI.h"
+#include "InventoryManagement/Components/Inv_InventoryComponent.h"
 
 void AShooterPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
 	// create the bullet counter widget and add it to the screen
-	BulletCounterUI = CreateWidget<UShooterBulletCounterUI>(this, BulletCounterUIClass);
-	BulletCounterUI->AddToPlayerScreen(0);
+	if (BulletCounterUIClass)
+	{
+		BulletCounterUI = CreateWidget<UShooterBulletCounterUI>(this, BulletCounterUIClass);
+		if (BulletCounterUI)
+		{
+			BulletCounterUI->AddToPlayerScreen(0);
+		}
+	}
 }
 
 void AShooterPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 	// add the input mapping contexts
-	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
+	if (ULocalPlayer* LocalPlayer = GetLocalPlayer())
 	{
-		for (UInputMappingContext* CurrentContext : DefaultMappingContexts)
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer))
 		{
-			Subsystem->AddMappingContext(CurrentContext, 0);
+			for (UInputMappingContext* CurrentContext : DefaultMappingContexts)
+			{
+				if (CurrentContext)
+				{
+					Subsystem->AddMappingContext(CurrentContext, 0);
+				}
+			}
 		}
 	}
 }
@@ -64,16 +79,50 @@ void AShooterPlayerController::OnPawnDestroyed(AActor* DestroyedActor)
 		// spawn a character at the player start
 		const FTransform SpawnTransform = RandomPlayerStart->GetActorTransform();
 
-		if (AShooterCharacter* RespawnedCharacter = GetWorld()->SpawnActor<AShooterCharacter>(CharacterClass, SpawnTransform))
+		if (CharacterClass)
 		{
-			// possess the character
-			Possess(RespawnedCharacter);
+			if (AShooterCharacter* RespawnedCharacter = GetWorld()->SpawnActor<AShooterCharacter>(CharacterClass, SpawnTransform))
+			{
+				// possess the character
+				Possess(RespawnedCharacter);
+			}
 		}
 	}
 }
 
 void AShooterPlayerController::OnBulletCountUpdated(int32 MagazineSize, int32 Bullets)
 {
-	// update the UI
-	BulletCounterUI->BP_UpdateBulletCounter(MagazineSize, Bullets);
+	// update the UI only if it exists (local player only)
+	if (BulletCounterUI)
+	{
+		BulletCounterUI->BP_UpdateBulletCounter(MagazineSize, Bullets);
+	}
+}
+
+void AShooterPlayerController::ToggleInventory()
+{
+	// Call the parent implementation first
+	Super::ToggleInventory();
+
+	// Get the ShooterUI from the GameMode and toggle its visibility
+	if (AShooterGameMode* ShooterGameMode = Cast<AShooterGameMode>(GetWorld()->GetAuthGameMode()))
+	{
+		if (UShooterUI* ShooterUI = ShooterGameMode->GetShooterUI())
+		{
+			// Get the inventory component to check its state
+			if (UInv_InventoryComponent* InvComp = FindComponentByClass<UInv_InventoryComponent>())
+			{
+				if (InvComp->IsInventoryMenuOpen())
+				{
+					// Hide Shooter UI when inventory is open
+					ShooterUI->SetVisibility(ESlateVisibility::Hidden);
+				}
+				else
+				{
+					// Show Shooter UI when inventory is closed
+					ShooterUI->SetVisibility(ESlateVisibility::Visible);
+				}
+			}
+		}
+	}
 }

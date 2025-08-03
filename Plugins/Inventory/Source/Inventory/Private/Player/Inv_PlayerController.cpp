@@ -32,6 +32,15 @@ void AInv_PlayerController::ToggleInventory()
 
 	if (!InventoryComponent.IsValid())return;
 	InventoryComponent->ToggleInventoryMenu();
+
+	if (InventoryComponent->IsInventoryMenuOpen())
+	{
+		HUDWidget->SetVisibility(ESlateVisibility::Hidden);
+	}
+	else
+	{
+		HUDWidget->SetVisibility(ESlateVisibility::Visible);
+	}
 	
 	
 }
@@ -40,13 +49,16 @@ void AInv_PlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	if (IsValid(Subsystem))
+	if (ULocalPlayer* LocalPlayer = GetLocalPlayer())
 	{
-		for (UInputMappingContext* CurrentContext : DefaultIMCs)
+		UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer);
+		if (IsValid(Subsystem))
 		{
-			Subsystem->AddMappingContext(CurrentContext, 0);
-		}	
+			for (UInputMappingContext* CurrentContext : DefaultIMCs)
+			{
+				Subsystem->AddMappingContext(CurrentContext, 0);
+			}	
+		}
 	}
 
 	InventoryComponent = FindComponentByClass<UInv_InventoryComponent>();
@@ -58,10 +70,17 @@ void AInv_PlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent);
-
-	EnhancedInputComponent->BindAction(PrimaryInventoryAction, ETriggerEvent::Started, this, &AInv_PlayerController::PrimaryInteract);
-	EnhancedInputComponent->BindAction(ToggleInventoryAction, ETriggerEvent::Started, this, &AInv_PlayerController::ToggleInventory);
+	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
+	{
+		if (PrimaryInventoryAction)
+		{
+			EnhancedInputComponent->BindAction(PrimaryInventoryAction, ETriggerEvent::Started, this, &AInv_PlayerController::PrimaryInteract);
+		}
+		if (ToggleInventoryAction)
+		{
+			EnhancedInputComponent->BindAction(ToggleInventoryAction, ETriggerEvent::Started, this, &AInv_PlayerController::ToggleInventory);
+		}
+	}
 }
 
 void AInv_PlayerController::PrimaryInteract()
@@ -80,15 +99,13 @@ void AInv_PlayerController::PrimaryInteract()
 
 void AInv_PlayerController::CreateHUDWidget()
 {
-	if (!IsLocalController()) return;
-	HUDWidget = CreateWidget<UInv_HUDWidget>(this, HUDWidgetClass);
-	if (IsValid(HUDWidget))
+	if (HUDWidgetClass)
 	{
-		HUDWidget->AddToViewport();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("HUDWidget is not valid!"));
+		HUDWidget = CreateWidget<UInv_HUDWidget>(this, HUDWidgetClass);
+		if (IsValid(HUDWidget))
+		{
+			HUDWidget->AddToViewport();
+		}
 	}
 }
 

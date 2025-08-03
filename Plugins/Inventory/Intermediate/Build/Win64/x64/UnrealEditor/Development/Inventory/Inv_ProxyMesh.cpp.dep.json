@@ -1,0 +1,26 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\private\\equipmentmanagement\\proxymesh\\inv_proxymesh.cpp",
+        "ProvidedModule": "",
+        "PCH": "g:\\projects\\demojob\\intermediate\\build\\win64\\x64\\demojobeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\inventory\\definitions.inventory.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\private\\equipmentmanagement\\proxymesh\\inv_proxymesh.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_proxymesh.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\equipmentmanagement\\components\\inv_equipmentcomponent.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_equipmentcomponent.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\net\\core\\public\\net\\core\\nettoken\\nettokenexportcontext.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "g:\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

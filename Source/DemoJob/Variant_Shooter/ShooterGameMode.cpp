@@ -12,9 +12,18 @@ void AShooterGameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// create the UI
-	ShooterUI = CreateWidget<UShooterUI>(UGameplayStatics::GetPlayerController(GetWorld(), 0), ShooterUIClass);
-	ShooterUI->AddToViewport(0);
+	// create the UI (only on server/standalone)
+	if (ShooterUIClass)
+	{
+		if (APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+		{
+			ShooterUI = CreateWidget<UShooterUI>(PC, ShooterUIClass);
+			if (ShooterUI)
+			{
+				ShooterUI->AddToViewport(0);
+			}
+		}
+	}
 }
 
 void AShooterGameMode::PostLogin(APlayerController* NewPlayer)

@@ -21,32 +21,50 @@ class UInv_ItemComponent;
 struct FInv_SlotAvailabilityResult;
 
 // ********** Begin Delegate FInventoryItemChange **************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_15_DELEGATE \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_16_DELEGATE \
 INVENTORY_API void FInventoryItemChange_DelegateWrapper(const FMulticastScriptDelegate& InventoryItemChange, UInv_InventoryItem* Item);
 
 
 // ********** End Delegate FInventoryItemChange ****************************************************
 
 // ********** Begin Delegate FNoRoomInInventory ****************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_16_DELEGATE \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_17_DELEGATE \
 INVENTORY_API void FNoRoomInInventory_DelegateWrapper(const FMulticastScriptDelegate& NoRoomInInventory);
 
 
 // ********** End Delegate FNoRoomInInventory ******************************************************
 
 // ********** Begin Delegate FStackChange **********************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_17_DELEGATE \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_18_DELEGATE \
 INVENTORY_API void FStackChange_DelegateWrapper(const FMulticastScriptDelegate& StackChange, FInv_SlotAvailabilityResult const& Result);
 
 
 // ********** End Delegate FStackChange ************************************************************
 
+// ********** Begin Delegate FItemEquippedStatusChanged ********************************************
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_19_DELEGATE \
+INVENTORY_API void FItemEquippedStatusChanged_DelegateWrapper(const FMulticastScriptDelegate& ItemEquippedStatusChanged, UInv_InventoryItem* Item);
+
+
+// ********** End Delegate FItemEquippedStatusChanged **********************************************
+
+// ********** Begin Delegate FInventoryMenuToggle **************************************************
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_20_DELEGATE \
+INVENTORY_API void FInventoryMenuToggle_DelegateWrapper(const FMulticastScriptDelegate& InventoryMenuToggle, bool bOpen);
+
+
+// ********** End Delegate FInventoryMenuToggle ****************************************************
+
 // ********** Begin Class UInv_InventoryComponent **************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Multicast_EquipSlotClicked_Implementation(UInv_InventoryItem* ItemToEquip, UInv_InventoryItem* ItemToUnequip); \
+	virtual void Server_EquipSlotClicked_Implementation(UInv_InventoryItem* ItemToEquip, UInv_InventoryItem* ItemToUnequip); \
 	virtual void Server_ConsumeItem_Implementation(UInv_InventoryItem* Item); \
 	virtual void Server_DropItem_Implementation(UInv_InventoryItem* Item, int32 StackCount); \
 	virtual void Server_AddStacksToItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount, int32 Remainder); \
-	virtual void Server_AddNewItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount); \
+	virtual void Server_AddNewItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount, int32 Remainder); \
+	DECLARE_FUNCTION(execMulticast_EquipSlotClicked); \
+	DECLARE_FUNCTION(execServer_EquipSlotClicked); \
 	DECLARE_FUNCTION(execServer_ConsumeItem); \
 	DECLARE_FUNCTION(execServer_DropItem); \
 	DECLARE_FUNCTION(execServer_AddStacksToItem); \
@@ -54,10 +72,10 @@ INVENTORY_API void FStackChange_DelegateWrapper(const FMulticastScriptDelegate& 
 	DECLARE_FUNCTION(execTryAddItem);
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_CALLBACK_WRAPPERS
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_CALLBACK_WRAPPERS
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryComponent_NoRegister();
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInv_InventoryComponent(); \
 	friend struct Z_Construct_UClass_UInv_InventoryComponent_Statics; \
@@ -74,7 +92,7 @@ public: \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	UInv_InventoryComponent(UInv_InventoryComponent&&) = delete; \
 	UInv_InventoryComponent(const UInv_InventoryComponent&) = delete; \
@@ -84,14 +102,14 @@ public: \
 	NO_API virtual ~UInv_InventoryComponent();
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_19_PROLOG
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_PROLOG
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_CALLBACK_WRAPPERS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_INCLASS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_22_ENHANCED_CONSTRUCTORS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_CALLBACK_WRAPPERS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_INCLASS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Components_Inv_InventoryComponent_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

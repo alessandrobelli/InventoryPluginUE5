@@ -13,7 +13,6 @@
 // Sets default values for this component's properties
 UInv_InventoryComponent::UInv_InventoryComponent() : InventoryList(this)
 {
-
 	PrimaryComponentTick.bCanEverTick = false;
 	SetIsReplicatedByDefault(true);
 	bReplicateUsingRegisteredSubObjectList = true;
@@ -50,14 +49,12 @@ void UInv_InventoryComponent::TryAddItem(UInv_ItemComponent* ItemComponent)
 	else if (Result.TotalRoomToFill > 0)
 	{
 		// this item is not stackable, so we need to add a new item
-		Server_AddNewItem(ItemComponent, Result.bStackable ? Result.TotalRoomToFill  : 0);
+		Server_AddNewItem(ItemComponent, Result.bStackable ? Result.TotalRoomToFill : 0, Result.Remainder);
 	}
-	
-	
-	
 }
 
-void UInv_InventoryComponent::Server_AddNewItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount)
+void UInv_InventoryComponent::Server_AddNewItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount,
+                                                               int32 Remainder)
 {
 	UInv_InventoryItem* NewItem = InventoryList.AddEntry(ItemComponent);
 	NewItem->SetTotalStackCount(StackCount);
@@ -66,15 +63,24 @@ void UInv_InventoryComponent::Server_AddNewItem_Implementation(UInv_ItemComponen
 	{
 		OnItemAdded.Broadcast(NewItem);
 	}
-	
-	ItemComponent->PickedUp();
-	
+
+	if (Remainder == 0)
+	{
+		ItemComponent->PickedUp();
+	}
+	else if (FInv_StackableFragment* StackableFragment = ItemComponent->GetItemManifestMutable().GetFragmentOfTypeMutable<
+		FInv_StackableFragment>())
+	{
+		StackableFragment->SetStackCount(Remainder);
+	}
 }
 
 void UInv_InventoryComponent::Server_AddStacksToItem_Implementation(UInv_ItemComponent* ItemComponent, int32 StackCount,
-	int32 Remainder)
+                                                                    int32 Remainder)
 {
-	const FGameplayTag& ItemType = IsValid(ItemComponent) ? ItemComponent->GetItemManifest().GetItemType() : FGameplayTag::EmptyTag;
+	const FGameplayTag& ItemType = IsValid(ItemComponent)
+		                               ? ItemComponent->GetItemManifest().GetItemType()
+		                               : FGameplayTag::EmptyTag;
 	UInv_InventoryItem* Item = InventoryList.FindFirstItemByType(ItemType);
 	if (!IsValid(Item)) return;
 
@@ -85,11 +91,11 @@ void UInv_InventoryComponent::Server_AddStacksToItem_Implementation(UInv_ItemCom
 	{
 		ItemComponent->PickedUp();
 	}
-	else if (FInv_StackableFragment* StackableFragment = ItemComponent->GetItemManifest().GetFragmentOfTypeMutable<FInv_StackableFragment>())
+	else if (FInv_StackableFragment* StackableFragment = ItemComponent->GetItemManifestMutable().GetFragmentOfTypeMutable<
+		FInv_StackableFragment>())
 	{
 		StackableFragment->SetStackCount(Remainder);
 	}
-	
 }
 
 
@@ -113,17 +119,19 @@ void UInv_InventoryComponent::SpawnDropItem(UInv_InventoryItem* Item, int32 Stac
 {
 	const APawn* OwningPawn = OwningController->GetPawn();
 	FVector RotatedForward = OwningPawn->GetActorForwardVector();
-	RotatedForward = RotatedForward.RotateAngleAxis(FMath::FRandRange(DropSpawnAngleMin, DropSpawnAngleMax), FVector::UpVector);
-	FVector SpawnLocation = OwningPawn->GetActorLocation() + RotatedForward * FMath::FRandRange(DropSpawnAngleMin, DropSpawnDistanceMax);
+	RotatedForward = RotatedForward.RotateAngleAxis(FMath::FRandRange(DropSpawnAngleMin, DropSpawnAngleMax),
+	                                                FVector::UpVector);
+	FVector SpawnLocation = OwningPawn->GetActorLocation() + RotatedForward * FMath::FRandRange(
+		DropSpawnAngleMin, DropSpawnDistanceMax);
 	SpawnLocation.Z -= RelativeSpawnElevation;
 	const FRotator SpawnRotation = FRotator::ZeroRotator;
-	
+
 	FInv_ItemManifest& ItemManifest = Item->GetItemManifestMutable();
 	if (FInv_StackableFragment* StackableFragment = ItemManifest.GetFragmentOfTypeMutable<FInv_StackableFragment>())
 	{
 		StackableFragment->SetStackCount(StackCount);
 	}
-	ItemManifest.SpawnPickupActor(this,SpawnLocation, SpawnRotation);
+	ItemManifest.SpawnPickupActor(this, SpawnLocation, SpawnRotation);
 }
 
 
@@ -139,11 +147,26 @@ void UInv_InventoryComponent::Server_ConsumeItem_Implementation(UInv_InventoryIt
 		Item->SetTotalStackCount(NewStackCount);
 	}
 
-	
-	if (FInv_ConsumableFragment* ConsumableFragment = Item->GetItemManifestMutable().GetFragmentOfTypeMutable<FInv_ConsumableFragment>())
+
+	if (FInv_ConsumableFragment* ConsumableFragment = Item->GetItemManifestMutable().GetFragmentOfTypeMutable<
+		FInv_ConsumableFragment>())
 	{
 		ConsumableFragment->OnConsume(OwningController.Get());
 	}
+}
+
+void UInv_InventoryComponent::Server_EquipSlotClicked_Implementation(UInv_InventoryItem* ItemToEquip,
+                                                                     UInv_InventoryItem* ItemToUnequip)
+{
+	Multicast_EquipSlotClicked(ItemToEquip, ItemToUnequip);
+}
+
+void UInv_InventoryComponent::Multicast_EquipSlotClicked_Implementation(UInv_InventoryItem* ItemToEquip,
+                                                                        UInv_InventoryItem* ItemToUnequip)
+{
+	// Equipment component will listen to this delegates
+	OnItemEquipped.Broadcast(ItemToEquip);
+	OnItemUnequipped.Broadcast(ItemToUnequip);
 }
 
 void UInv_InventoryComponent::ToggleInventoryMenu()
@@ -156,7 +179,8 @@ void UInv_InventoryComponent::ToggleInventoryMenu()
 	{
 		OpenInventoryMenu();
 	}
-	
+
+	OnInventoryMenuToggle.Broadcast(bInventoryMenuOpen);
 }
 
 void UInv_InventoryComponent::AddRepSubObj(UObject* SubObj)
@@ -168,14 +192,12 @@ void UInv_InventoryComponent::AddRepSubObj(UObject* SubObj)
 }
 
 
-
 // Called when the game starts
 void UInv_InventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	ConstructInventory();
-	
 }
 
 void UInv_InventoryComponent::ConstructInventory()
@@ -213,10 +235,6 @@ void UInv_InventoryComponent::CloseInventoryMenu()
 	if (!OwningController.IsValid()) return;
 
 	FInputModeGameOnly InputMode;
-		OwningController->SetInputMode(InputMode);
+	OwningController->SetInputMode(InputMode);
 	OwningController->bShowMouseCursor = false;
-	
 }
-
-
-

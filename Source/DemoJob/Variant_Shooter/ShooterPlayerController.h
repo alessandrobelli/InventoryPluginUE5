@@ -10,6 +10,8 @@
 class UInputMappingContext;
 class AShooterCharacter;
 class UShooterBulletCounterUI;
+class AShooterGameMode;
+class UShooterUI;
 
 /**
  *  Simple PlayerController for a first person shooter game
@@ -60,4 +62,8 @@ protected:
 	/** Called when the bullet count on the possessed pawn is updated */
 	UFUNCTION()
 	void OnBulletCountUpdated(int32 MagazineSize, int32 Bullets);
+
+public:
+	/** Handle ShooterUI visibility along with inventory */
+	void ToggleInventory() override;
 };

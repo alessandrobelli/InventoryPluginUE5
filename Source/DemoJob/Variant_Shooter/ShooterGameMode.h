@@ -35,4 +35,7 @@ protected:
 	/** Called after a successful login */
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 
+public:
+	/** Get the shooter UI widget */
+	UShooterUI* GetShooterUI() const { return ShooterUI; }
 };

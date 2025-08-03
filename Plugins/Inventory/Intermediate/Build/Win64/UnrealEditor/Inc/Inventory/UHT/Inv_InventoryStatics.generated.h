@@ -17,13 +17,15 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 class APlayerController;
+class UInv_HoverItem;
 class UInv_InventoryComponent;
 class UInv_InventoryItem;
 class UInv_ItemComponent;
 enum class EInv_ItemCategory : uint8;
 
 // ********** Begin Class UInv_InventoryStatics ****************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetHoverItem); \
 	DECLARE_FUNCTION(execItemUnhovered); \
 	DECLARE_FUNCTION(execItemHovered); \
 	DECLARE_FUNCTION(execGetItemCategoryFromItemComp); \
@@ -32,7 +34,7 @@ enum class EInv_ItemCategory : uint8;
 
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryStatics_NoRegister();
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInv_InventoryStatics(); \
 	friend struct Z_Construct_UClass_UInv_InventoryStatics_Statics; \
@@ -43,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(UInv_InventoryStatics)
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UInv_InventoryStatics(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -55,13 +57,13 @@ public: \
 	NO_API virtual ~UInv_InventoryStatics();
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_17_PROLOG
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_19_PROLOG
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_INCLASS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_20_ENHANCED_CONSTRUCTORS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_INCLASS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_InventoryManagement_Inv_InventoryStatics_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

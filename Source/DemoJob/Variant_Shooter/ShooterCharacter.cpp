@@ -26,14 +26,20 @@ void AShooterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-		// initialize sprint meter to max
+	// initialize sprint meter to max
 	SprintMeter = SprintTime;
 
 	// Initialize the walk speed
-	GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
+	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
+	{
+		MovementComp->MaxWalkSpeed = WalkSpeed;
+	}
 
 	// start the sprint tick timer
-	GetWorld()->GetTimerManager().SetTimer(SprintTimer, this, &AShooterCharacter::SprintFixedTick, SprintFixedTickTime, true);
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().SetTimer(SprintTimer, this, &AShooterCharacter::SprintFixedTick, SprintFixedTickTime, true);
+	}
 }
 
 void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

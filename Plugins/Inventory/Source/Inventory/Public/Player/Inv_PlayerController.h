@@ -25,7 +25,7 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 
 	UFUNCTION(BlueprintCallable)
-	void ToggleInventory();
+	virtual void ToggleInventory();
 	
 protected:
 	virtual void BeginPlay() override;

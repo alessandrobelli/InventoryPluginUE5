@@ -21,6 +21,7 @@ public:
 
 	void InitItemManifest(FInv_ItemManifest CopyManifest);
 	FInv_ItemManifest GetItemManifest() const {return ItemManifest;}
+	FInv_ItemManifest& GetItemManifestMutable() {return ItemManifest;}
 
 	FString GetPickupMessage() const { return PickupMessage; }
 	void PickedUp();

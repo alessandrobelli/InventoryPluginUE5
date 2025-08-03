@@ -8,6 +8,7 @@
 #include "Inv_InventoryComponent.generated.h"
 
 
+class AInv_EquipActor;
 struct FInv_SlotAvailabilityResult;
 class UInv_ItemComponent;
 class UInv_InventoryBase;
@@ -15,6 +16,8 @@ class UInv_InventoryBase;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FInventoryItemChange, UInv_InventoryItem*, Item);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FNoRoomInInventory);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FStackChange, const FInv_SlotAvailabilityResult&, Result);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemEquippedStatusChanged, UInv_InventoryItem*, Item);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FInventoryMenuToggle, bool, bOpen);
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent), Blueprintable)
 class INVENTORY_API UInv_InventoryComponent : public UActorComponent
@@ -31,7 +34,7 @@ public:
 	void TryAddItem(UInv_ItemComponent* ItemComponent);
 
 	UFUNCTION(Server, Reliable)
-	void Server_AddNewItem(UInv_ItemComponent* ItemComponent, int32 StackCount);
+	void Server_AddNewItem(UInv_ItemComponent* ItemComponent, int32 StackCount, int32 Remainder);
 
 	UFUNCTION(Server, Reliable)
 	void Server_AddStacksToItem(UInv_ItemComponent* ItemComponent, int32 StackCount, int32 Remainder);
@@ -41,17 +44,28 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void Server_ConsumeItem(UInv_InventoryItem* Item);
+
+	UFUNCTION(Server, Reliable)
+	void Server_EquipSlotClicked(UInv_InventoryItem* ItemToEquip, UInv_InventoryItem* ItemToUnequip);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void Multicast_EquipSlotClicked(UInv_InventoryItem* ItemToEquip, UInv_InventoryItem* ItemToUnequip);
+	
 	
 
 	void ToggleInventoryMenu();
 	void AddRepSubObj(UObject* SubObj);
 	void SpawnDropItem(UInv_InventoryItem* Item, int32 StackCount);
 	UInv_InventoryBase* GetInventoryMenu() const { return InventoryMenu; }
+	bool IsInventoryMenuOpen() const { return bInventoryMenuOpen; }
 
 	FInventoryItemChange OnItemAdded;
 	FInventoryItemChange OnItemRemoved;
 	FNoRoomInInventory OnNoRoomInInventory;
 	FStackChange OnStackChange;
+	FItemEquippedStatusChanged OnItemEquipped;
+	FItemEquippedStatusChanged OnItemUnequipped;
+	FInventoryMenuToggle OnInventoryMenuToggle;
 
 protected:
 	// Called when the game starts
@@ -89,4 +103,6 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Inventory")
 	float RelativeSpawnElevation = 70.f;
+
+
 };

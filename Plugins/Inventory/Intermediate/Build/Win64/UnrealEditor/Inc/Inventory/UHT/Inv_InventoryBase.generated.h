@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 // ********** Begin Class UInv_InventoryBase *******************************************************
 INVENTORY_API UClass* Z_Construct_UClass_UInv_InventoryBase_NoRegister();
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_18_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInv_InventoryBase(); \
 	friend struct Z_Construct_UClass_UInv_InventoryBase_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(UInv_InventoryBase)
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_18_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_19_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UInv_InventoryBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	/** Deleted move- and copy-constructors, should never be used */ \
@@ -42,12 +42,12 @@ public: \
 	NO_API virtual ~UInv_InventoryBase();
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_15_PROLOG
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_18_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_16_PROLOG
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_18_INCLASS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_18_ENHANCED_CONSTRUCTORS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_19_INCLASS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_InventoryBase_Inv_InventoryBase_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

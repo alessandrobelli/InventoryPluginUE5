@@ -18,6 +18,7 @@ class INVENTORY_API UInv_ItemDescription : public UInv_Composite
 public:
 
 	FVector2D GetBoxSize() const;
+	virtual void SetVisibility(ESlateVisibility InVisibility) override;
 
 private:
 

@@ -269,6 +269,53 @@ DEFINE_FUNCTION(UInv_InventoryGrid::execOnGridSlotUnhovered)
 }
 // ********** End Class UInv_InventoryGrid Function OnGridSlotUnhovered ****************************
 
+// ********** Begin Class UInv_InventoryGrid Function OnInventoryMenuToggled ***********************
+struct Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics
+{
+	struct Inv_InventoryGrid_eventOnInventoryMenuToggled_Parms
+	{
+		bool bOpen;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/Spatial/Inv_InventoryGrid.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bOpen_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bOpen;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::NewProp_bOpen_SetBit(void* Obj)
+{
+	((Inv_InventoryGrid_eventOnInventoryMenuToggled_Parms*)Obj)->bOpen = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::NewProp_bOpen = { "bOpen", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Inv_InventoryGrid_eventOnInventoryMenuToggled_Parms), &Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::NewProp_bOpen_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::NewProp_bOpen,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_InventoryGrid, nullptr, "OnInventoryMenuToggled", Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::Inv_InventoryGrid_eventOnInventoryMenuToggled_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::Inv_InventoryGrid_eventOnInventoryMenuToggled_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_InventoryGrid::execOnInventoryMenuToggled)
+{
+	P_GET_UBOOL(Z_Param_bOpen);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnInventoryMenuToggled(Z_Param_bOpen);
+	P_NATIVE_END;
+}
+// ********** End Class UInv_InventoryGrid Function OnInventoryMenuToggled *************************
+
 // ********** Begin Class UInv_InventoryGrid Function OnPopUpMenuConsume ***************************
 struct Z_Construct_UFunction_UInv_InventoryGrid_OnPopUpMenuConsume_Statics
 {
@@ -460,6 +507,7 @@ void UInv_InventoryGrid::StaticRegisterNativesUInv_InventoryGrid()
 		{ "OnGridSlotClicked", &UInv_InventoryGrid::execOnGridSlotClicked },
 		{ "OnGridSlotHovered", &UInv_InventoryGrid::execOnGridSlotHovered },
 		{ "OnGridSlotUnhovered", &UInv_InventoryGrid::execOnGridSlotUnhovered },
+		{ "OnInventoryMenuToggled", &UInv_InventoryGrid::execOnInventoryMenuToggled },
 		{ "OnPopUpMenuConsume", &UInv_InventoryGrid::execOnPopUpMenuConsume },
 		{ "OnPopUpMenuDrop", &UInv_InventoryGrid::execOnPopUpMenuDrop },
 		{ "OnPopUpMenuSplit", &UInv_InventoryGrid::execOnPopUpMenuSplit },
@@ -611,6 +659,7 @@ struct Z_Construct_UClass_UInv_InventoryGrid_Statics
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnGridSlotClicked, "OnGridSlotClicked" }, // 1014956860
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnGridSlotHovered, "OnGridSlotHovered" }, // 3163618735
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnGridSlotUnhovered, "OnGridSlotUnhovered" }, // 4254583392
+		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnInventoryMenuToggled, "OnInventoryMenuToggled" }, // 56507826
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnPopUpMenuConsume, "OnPopUpMenuConsume" }, // 2637765898
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnPopUpMenuDrop, "OnPopUpMenuDrop" }, // 1846161184
 		{ &Z_Construct_UFunction_UInv_InventoryGrid_OnPopUpMenuSplit, "OnPopUpMenuSplit" }, // 635789404
@@ -706,10 +755,10 @@ UInv_InventoryGrid::~UInv_InventoryGrid() {}
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h__Script_Inventory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInv_InventoryGrid, UInv_InventoryGrid::StaticClass, TEXT("UInv_InventoryGrid"), &Z_Registration_Info_UClass_UInv_InventoryGrid, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_InventoryGrid), 4007297674U) },
+		{ Z_Construct_UClass_UInv_InventoryGrid, UInv_InventoryGrid::StaticClass, TEXT("UInv_InventoryGrid"), &Z_Registration_Info_UClass_UInv_InventoryGrid, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_InventoryGrid), 3878636658U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h__Script_Inventory_624526550(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h__Script_Inventory_1306613792(TEXT("/Script/Inventory"),
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h__Script_Inventory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_Spatial_Inv_InventoryGrid_h__Script_Inventory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -45,7 +45,7 @@ FVector2D UInv_WidgetUtils::GetClampedWidgetPosition(const FVector2D& Boundary, 
 	}
 
 	// Adjust vertical position to ensure that the widget stays within the boundary
-	if (MousePosition.X + WidgetSize.Y > Boundary.Y) // widget exceeds the bottom edge
+	if (MousePosition.Y + WidgetSize.Y > Boundary.Y) // widget exceeds the bottom edge
 	{
 		ClampedPosition.Y = Boundary.Y - WidgetSize.Y; // move it to the top edge
 	}
