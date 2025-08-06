@@ -34,6 +34,13 @@ public:
 	UInv_InventoryItem* GetInventoryItem() const { return InventoryItem.Get(); }
 	void SetImageBrush(const FSlateBrush& Brush) const;
 	void UpdateStackCount(int32 StackCount);
+	void UpdateItemName();
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Item Label")
+	FText GetItemName() const;
+	
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Item Label")
+	bool HasItemName() const;
 
 	
 	FSlottedItemClicked OnSlottedItemClicked;
@@ -46,6 +53,9 @@ private:
 
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Text_StackCount;
+
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UTextBlock> Text_ItemName;
 
 	int32 GridIndex;
 	FIntPoint GridDimensions;

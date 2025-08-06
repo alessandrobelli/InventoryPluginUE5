@@ -109,7 +109,9 @@
             "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\inventorymanagement\\inv_inventorystatics.h",
             "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\widgets\\utils\\inv_widgetutils.h",
             "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_widgetutils.generated.h",
-            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_inventorystatics.generated.h"
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_inventorystatics.generated.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\source\\inventory\\public\\items\\fragments\\inv_itemfragment.h",
+            "g:\\projects\\demojob\\plugins\\inventory\\intermediate\\build\\win64\\unrealeditor\\inc\\inventory\\uht\\inv_itemfragment.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

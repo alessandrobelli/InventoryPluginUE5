@@ -1,5 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
+#include "ShooterBulletCounterUI.h"
 
-#include "Variant_Shooter/ShooterBulletCounterUI.h"
-
+UShooterBulletCounterUI::UShooterBulletCounterUI(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
+{
+}

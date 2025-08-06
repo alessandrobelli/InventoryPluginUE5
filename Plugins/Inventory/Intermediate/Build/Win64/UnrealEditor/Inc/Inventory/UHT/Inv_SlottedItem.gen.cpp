@@ -76,9 +76,104 @@ void FSlottedItemClicked_DelegateWrapper(const FMulticastScriptDelegate& Slotted
 }
 // ********** End Delegate FSlottedItemClicked *****************************************************
 
+// ********** Begin Class UInv_SlottedItem Function GetItemName ************************************
+struct Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics
+{
+	struct Inv_SlottedItem_eventGetItemName_Parms
+	{
+		FText ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Item Label" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/SlottedItems/Inv_SlottedItem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FTextPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Inv_SlottedItem_eventGetItemName_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_SlottedItem, nullptr, "GetItemName", Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::Inv_SlottedItem_eventGetItemName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::Inv_SlottedItem_eventGetItemName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_SlottedItem_GetItemName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_SlottedItem_GetItemName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_SlottedItem::execGetItemName)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(FText*)Z_Param__Result=P_THIS->GetItemName();
+	P_NATIVE_END;
+}
+// ********** End Class UInv_SlottedItem Function GetItemName **************************************
+
+// ********** Begin Class UInv_SlottedItem Function HasItemName ************************************
+struct Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics
+{
+	struct Inv_SlottedItem_eventHasItemName_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Item Label" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/SlottedItems/Inv_SlottedItem.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((Inv_SlottedItem_eventHasItemName_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Inv_SlottedItem_eventHasItemName_Parms), &Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_UInv_SlottedItem, nullptr, "HasItemName", Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::Inv_SlottedItem_eventHasItemName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::Function_MetaDataParams)},  };
+static_assert(sizeof(Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::Inv_SlottedItem_eventHasItemName_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UInv_SlottedItem_HasItemName()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInv_SlottedItem_HasItemName_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UInv_SlottedItem::execHasItemName)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->HasItemName();
+	P_NATIVE_END;
+}
+// ********** End Class UInv_SlottedItem Function HasItemName **************************************
+
 // ********** Begin Class UInv_SlottedItem *********************************************************
 void UInv_SlottedItem::StaticRegisterNativesUInv_SlottedItem()
 {
+	UClass* Class = UInv_SlottedItem::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "GetItemName", &UInv_SlottedItem::execGetItemName },
+		{ "HasItemName", &UInv_SlottedItem::execHasItemName },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 FClassRegistrationInfo Z_Registration_Info_UClass_UInv_SlottedItem;
 UClass* UInv_SlottedItem::GetPrivateStaticClass()
@@ -126,11 +221,22 @@ struct Z_Construct_UClass_UInv_SlottedItem_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Widgets/Inventory/SlottedItems/Inv_SlottedItem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Text_ItemName_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Widgets/Inventory/SlottedItems/Inv_SlottedItem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Image_Icon;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Text_StackCount;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Text_ItemName;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UInv_SlottedItem_GetItemName, "GetItemName" }, // 2512235092
+		{ &Z_Construct_UFunction_UInv_SlottedItem_HasItemName, "HasItemName" }, // 1866600951
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UInv_SlottedItem>::IsAbstract,
 	};
@@ -138,9 +244,11 @@ struct Z_Construct_UClass_UInv_SlottedItem_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Image_Icon = { "Image_Icon", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SlottedItem, Image_Icon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Image_Icon_MetaData), NewProp_Image_Icon_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Text_StackCount = { "Text_StackCount", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SlottedItem, Text_StackCount), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_StackCount_MetaData), NewProp_Text_StackCount_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Text_ItemName = { "Text_ItemName", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInv_SlottedItem, Text_ItemName), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_ItemName_MetaData), NewProp_Text_ItemName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInv_SlottedItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Image_Icon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Text_StackCount,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInv_SlottedItem_Statics::NewProp_Text_ItemName,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UInv_SlottedItem_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UInv_SlottedItem_Statics::DependentSingletons[])() = {
@@ -153,11 +261,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UInv_SlottedItem_Static
 	nullptr,
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_UInv_SlottedItem_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_UInv_SlottedItem_Statics::PropPointers),
 	0,
 	0x00B010A0u,
@@ -180,10 +288,10 @@ UInv_SlottedItem::~UInv_SlottedItem() {}
 struct Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h__Script_Inventory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInv_SlottedItem, UInv_SlottedItem::StaticClass, TEXT("UInv_SlottedItem"), &Z_Registration_Info_UClass_UInv_SlottedItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_SlottedItem), 3088291323U) },
+		{ Z_Construct_UClass_UInv_SlottedItem, UInv_SlottedItem::StaticClass, TEXT("UInv_SlottedItem"), &Z_Registration_Info_UClass_UInv_SlottedItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInv_SlottedItem), 2855350995U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h__Script_Inventory_3023679208(TEXT("/Script/Inventory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h__Script_Inventory_3385518114(TEXT("/Script/Inventory"),
 	Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h__Script_Inventory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h__Script_Inventory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

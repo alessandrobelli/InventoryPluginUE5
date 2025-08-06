@@ -17,13 +17,13 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AInv_PlayerController ****************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execToggleInventory);
 
 
 INVENTORY_API UClass* Z_Construct_UClass_AInv_PlayerController_NoRegister();
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAInv_PlayerController(); \
 	friend struct Z_Construct_UClass_AInv_PlayerController_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AInv_PlayerController)
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AInv_PlayerController(AInv_PlayerController&&) = delete; \
 	AInv_PlayerController(const AInv_PlayerController&) = delete; \
@@ -44,13 +44,13 @@ public: \
 	NO_API virtual ~AInv_PlayerController();
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_17_PROLOG
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_18_PROLOG
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_INCLASS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_20_ENHANCED_CONSTRUCTORS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_INCLASS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Player_Inv_PlayerController_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -16,11 +16,17 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class ACharacter;
+
 // ********** Begin Class UInv_ItemComponent *******************************************************
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_CALLBACK_WRAPPERS
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execPlayPickupSequence);
+
+
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_CALLBACK_WRAPPERS
 INVENTORY_API UClass* Z_Construct_UClass_UInv_ItemComponent_NoRegister();
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInv_ItemComponent(); \
 	friend struct Z_Construct_UClass_UInv_ItemComponent_Statics; \
@@ -37,7 +43,7 @@ public: \
 	DECLARE_VALIDATE_GENERATED_REP_ENUMS(NO_API)
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	UInv_ItemComponent(UInv_ItemComponent&&) = delete; \
 	UInv_ItemComponent(const UInv_ItemComponent&) = delete; \
@@ -47,13 +53,14 @@ public: \
 	NO_API virtual ~UInv_ItemComponent();
 
 
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_12_PROLOG
-#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_GENERATED_BODY \
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_11_PROLOG
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_CALLBACK_WRAPPERS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_INCLASS_NO_PURE_DECLS \
-	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_15_ENHANCED_CONSTRUCTORS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_CALLBACK_WRAPPERS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_INCLASS_NO_PURE_DECLS \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Items_Components_Inv_ItemComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

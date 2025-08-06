@@ -9,7 +9,6 @@
 
 class UInputMappingContext;
 class AShooterCharacter;
-class UShooterBulletCounterUI;
 class AShooterGameMode;
 class UShooterUI;
 
@@ -29,20 +28,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Shooter")
 	TArray<UInputMappingContext*> DefaultMappingContexts;
 
-	/** Character class to respawn when the possessed pawn is destroyed */
-	UPROPERTY(EditAnywhere, Category="Shooter")
-	TSubclassOf<AShooterCharacter> CharacterClass;
-
-	/** Type of bullet counter UI widget to spawn */
-	UPROPERTY(EditAnywhere, Category="Shooter")
-	TSubclassOf<UShooterBulletCounterUI> BulletCounterUIClass;
-
 	/** Tag to grant the possessed pawn to flag it as the player */
 	UPROPERTY(EditAnywhere, Category="Shooter")
 	FName PlayerPawnTag = FName("Player");
-
-	/** Pointer to the bullet counter UI widget */
-	TObjectPtr<UShooterBulletCounterUI> BulletCounterUI;
 
 protected:
 
@@ -55,13 +43,6 @@ protected:
 	/** Pawn initialization */
 	virtual void OnPossess(APawn* InPawn) override;
 
-	/** Called if the possessed pawn is destroyed */
-	UFUNCTION()
-	void OnPawnDestroyed(AActor* DestroyedActor);
-
-	/** Called when the bullet count on the possessed pawn is updated */
-	UFUNCTION()
-	void OnBulletCountUpdated(int32 MagazineSize, int32 Bullets);
 
 public:
 	/** Handle ShooterUI visibility along with inventory */

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "Items/Components/Inv_ItemComponent.h"
 #include "Inv_PlayerController.generated.h"
 
 /**
@@ -34,6 +35,7 @@ protected:
 private:
 
 	void PrimaryInteract();
+	void CompletePickup();
 	void CreateHUDWidget();
 	void TraceForItem();
 
@@ -63,4 +65,11 @@ private:
 
 	TWeakObjectPtr<AActor> ThisActor;
 	TWeakObjectPtr<AActor> LastActor;
+
+	UPROPERTY()
+	UInv_ItemComponent* PendingPickupComponent{nullptr};
+	
+	FTimerHandle PickupDelayTimer;
+	
+	bool bCanInteract{true};
 };

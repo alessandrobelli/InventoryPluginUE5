@@ -5,6 +5,7 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "GameFramework/Character.h"
 #include "Interaction/Inv_Highlightable.h"
 #include "InventoryManagement/Components/Inv_InventoryComponent.h"
 #include "Items/Components/Inv_ItemComponent.h"
@@ -85,17 +86,60 @@ void AInv_PlayerController::SetupInputComponent()
 
 void AInv_PlayerController::PrimaryInteract()
 {
+	// Check if we can interact
+	if (!bCanInteract) return;
+	
 	if (!ThisActor.IsValid()) return;
 	UInv_ItemComponent* ItemComponent = ThisActor->FindComponentByClass<UInv_ItemComponent>();
 
-	if (!IsValid(ItemComponent) || !InventoryComponent.IsValid())
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ItemComponent or InventoryComponent is not valid!"));
-		return;
-	}
+	if (!IsValid(ItemComponent) || !InventoryComponent.IsValid()) return;
 
-	InventoryComponent->TryAddItem(ItemComponent);
+	// Check if this item has a pickup animation
+	if (ItemComponent->PickupMontage && ItemComponent->AnimationDelay > 0.0f)
+	{
+		// Store for delayed pickup
+		PendingPickupComponent = ItemComponent;
+
+		// Disable further interactions during animation
+		bCanInteract = false;
+
+		// Play the pickup sequence
+		if (ACharacter* CharacterPawn = GetPawn<ACharacter>())
+		{
+			ItemComponent->PlayPickupSequence(CharacterPawn);
+
+			// Set timer for actual pickup after animation
+			GetWorld()->GetTimerManager().SetTimer(
+				PickupDelayTimer,
+				this,
+				&AInv_PlayerController::CompletePickup,
+				ItemComponent->AnimationDelay,
+				false
+			);
+		}
+		else
+		{
+			// If no character pawn, pickup immediately
+			CompletePickup();
+		}
+	}
+	else
+	{
+		// No animation configured, pickup immediately
+		InventoryComponent->TryAddItem(ItemComponent);
+	}
 }
+
+void AInv_PlayerController::CompletePickup()
+{
+	if (IsValid(PendingPickupComponent) && InventoryComponent.IsValid())
+	{
+		InventoryComponent->TryAddItem(PendingPickupComponent);
+		PendingPickupComponent = nullptr;
+	}
+	bCanInteract = true;
+}
+
 
 void AInv_PlayerController::CreateHUDWidget()
 {
@@ -111,6 +155,9 @@ void AInv_PlayerController::CreateHUDWidget()
 
 void AInv_PlayerController::TraceForItem()
 {
+	// Don't trace if we're in the middle of picking something up
+	if (!bCanInteract) return;
+	
 	if (!IsValid(GEngine) || !GEngine->GameViewport)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("GEngine or GameViewport is not valid!"));

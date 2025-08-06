@@ -26,6 +26,11 @@ INVENTORY_API void FSlottedItemClicked_DelegateWrapper(const FMulticastScriptDel
 // ********** End Delegate FSlottedItemClicked *****************************************************
 
 // ********** Begin Class UInv_SlottedItem *********************************************************
+#define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execHasItemName); \
+	DECLARE_FUNCTION(execGetItemName);
+
+
 INVENTORY_API UClass* Z_Construct_UClass_UInv_SlottedItem_NoRegister();
 
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_INCLASS_NO_PURE_DECLS \
@@ -55,6 +60,7 @@ public: \
 #define FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_INCLASS_NO_PURE_DECLS \
 	FID_Projects_DemoJob_Plugins_Inventory_Source_Inventory_Public_Widgets_Inventory_SlottedItems_Inv_SlottedItem_h_18_ENHANCED_CONSTRUCTORS \
 private: \

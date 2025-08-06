@@ -3,6 +3,7 @@
 	{
 		"Module.Inventory.cpp.obj": [
 			"Inventory.init.gen.cpp.obj",
+			"Inv_CharacterDisplay.gen.cpp.obj",
 			"Inv_Composite.gen.cpp.obj",
 			"Inv_CompositeBase.gen.cpp.obj",
 			"Inv_EquipActor.gen.cpp.obj",
@@ -25,6 +26,7 @@
 			"Inv_ItemComponent.gen.cpp.obj",
 			"Inv_ItemDescription.gen.cpp.obj",
 			"Inv_ItemFragment.gen.cpp.obj",
+			"Inv_ItemLabelWidget.gen.cpp.obj",
 			"Inv_ItemManifest.gen.cpp.obj",
 			"Inv_ItemPopUp.gen.cpp.obj",
 			"Inv_Leaf.gen.cpp.obj",
@@ -54,6 +56,7 @@
 			"Inv_ItemManifest.cpp.obj",
 			"Inv_PlayerController.cpp.obj",
 			"Inv_GridTypes.cpp.obj",
+			"Inv_CharacterDisplay.cpp.obj",
 			"Inv_Composite.cpp.obj",
 			"Inv_CompositeBase.cpp.obj",
 			"Inv_Leaf.cpp.obj",
@@ -66,6 +69,7 @@
 			"Inv_GridSlot.cpp.obj",
 			"Inv_HoverItem.cpp.obj",
 			"Inv_InventoryBase.cpp.obj",
+			"Inv_ItemLabelWidget.cpp.obj",
 			"Inv_EquippedSlottedItem.cpp.obj",
 			"Inv_SlottedItem.cpp.obj",
 			"Inv_InventoryGrid.cpp.obj",
