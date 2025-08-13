@@ -8,6 +8,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Engine/World.h"
 #include "Camera/CameraComponent.h"
+#include "Player/Inv_PlayerController.h"
 
 AShooterCharacter::AShooterCharacter()
 {
@@ -22,10 +23,20 @@ void AShooterCharacter::BeginPlay()
 	// initialize sprint meter to max
 	SprintMeter = SprintTime;
 
-	// Initialize the walk speed
+	// Initialize the walk speed with weight multiplier
 	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
 	{
-		MovementComp->MaxWalkSpeed = WalkSpeed;
+		float WeightMultiplier = 1.0f;
+		if (AInv_PlayerController* InvPC = Cast<AInv_PlayerController>(GetController()))
+		{
+			WeightMultiplier = InvPC->GetWeightSpeedMultiplier();
+		}
+		
+		float AdjustedWalkSpeed = WalkSpeed * WeightMultiplier;
+		MovementComp->MaxWalkSpeed = AdjustedWalkSpeed;
+		
+		UE_LOG(LogTemp, Warning, TEXT("Initial walk speed set to: %f (base: %f, weight multiplier: %f)"), 
+			AdjustedWalkSpeed, WalkSpeed, WeightMultiplier);
 	}
 
 	// start the sprint tick timer
@@ -61,14 +72,23 @@ void AShooterCharacter::DoStartSprint()
 	// are we out of recovery mode?
 	if (!bRecovering)
 	{
-		// set the sprint walk speed
-		GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+		// Get weight multiplier from player controller
+		float WeightMultiplier = 1.0f;
+		if (AInv_PlayerController* InvPC = Cast<AInv_PlayerController>(GetController()))
+		{
+			WeightMultiplier = InvPC->GetWeightSpeedMultiplier();
+		}
+		
+		// set the sprint walk speed with weight penalty
+		float AdjustedSprintSpeed = SprintSpeed * WeightMultiplier;
+		GetCharacterMovement()->MaxWalkSpeed = AdjustedSprintSpeed;
 
 		// call the sprint state changed delegate
 		OnSprintStateChanged.Broadcast(true);
 		
 		// Debug log
-		UE_LOG(LogTemp, Warning, TEXT("Sprint speed set to: %f"), SprintSpeed);
+		UE_LOG(LogTemp, Warning, TEXT("Sprint speed set to: %f (base: %f, weight multiplier: %f)"), 
+			AdjustedSprintSpeed, SprintSpeed, WeightMultiplier);
 	}
 
 }
@@ -81,8 +101,16 @@ void AShooterCharacter::DoEndSprint()
 	// are we out of recovery mode?
 	if (!bRecovering)
 	{
-		// set the default walk speed
-		GetCharacterMovement()->MaxWalkSpeed = WalkSpeed;
+		// Get weight multiplier from player controller
+		float WeightMultiplier = 1.0f;
+		if (AInv_PlayerController* InvPC = Cast<AInv_PlayerController>(GetController()))
+		{
+			WeightMultiplier = InvPC->GetWeightSpeedMultiplier();
+		}
+		
+		// set the default walk speed with weight penalty
+		float AdjustedWalkSpeed = WalkSpeed * WeightMultiplier;
+		GetCharacterMovement()->MaxWalkSpeed = AdjustedWalkSpeed;
 
 		// call the sprint state changed delegate
 		OnSprintStateChanged.Broadcast(false);
@@ -107,8 +135,16 @@ void AShooterCharacter::SprintFixedTick()
 				// raise the recovering flag
 				bRecovering = true;
 
-				// set the recovering walk speed
-				GetCharacterMovement()->MaxWalkSpeed = RecoveringWalkSpeed;
+				// Get weight multiplier from player controller
+				float WeightMultiplier = 1.0f;
+				if (AInv_PlayerController* InvPC = Cast<AInv_PlayerController>(GetController()))
+				{
+					WeightMultiplier = InvPC->GetWeightSpeedMultiplier();
+				}
+				
+				// set the recovering walk speed with weight penalty
+				float AdjustedRecoveringSpeed = RecoveringWalkSpeed * WeightMultiplier;
+				GetCharacterMovement()->MaxWalkSpeed = AdjustedRecoveringSpeed;
 			}
 		}
 		
@@ -122,8 +158,17 @@ void AShooterCharacter::SprintFixedTick()
 			// lower the recovering flag
 			bRecovering = false;
 
+			// Get weight multiplier from player controller
+			float WeightMultiplier = 1.0f;
+			if (AInv_PlayerController* InvPC = Cast<AInv_PlayerController>(GetController()))
+			{
+				WeightMultiplier = InvPC->GetWeightSpeedMultiplier();
+			}
+			
 			// set the walk or sprint speed depending on whether the sprint button is down
-			GetCharacterMovement()->MaxWalkSpeed = bSprinting ? SprintSpeed : WalkSpeed;
+			float BaseSpeed = bSprinting ? SprintSpeed : WalkSpeed;
+			float AdjustedSpeed = BaseSpeed * WeightMultiplier;
+			GetCharacterMovement()->MaxWalkSpeed = AdjustedSpeed;
 
 			// update the sprint state depending on whether the button is down or not
 			OnSprintStateChanged.Broadcast(bSprinting);
