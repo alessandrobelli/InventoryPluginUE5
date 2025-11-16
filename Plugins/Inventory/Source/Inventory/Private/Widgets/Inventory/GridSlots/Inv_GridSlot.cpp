@@ -6,12 +6,45 @@
 #include "Components/Image.h"
 #include "Items/Inv_InventoryItem.h"
 
+
+#include "Player/Inv_DragDropOperation.h"
+
 void UInv_GridSlot::NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent)
 {
 	Super::NativeOnMouseEnter(InGeometry, InMouseEvent);
 
 	GridSlotHovered.Broadcast(TileIndex, InMouseEvent);
 }
+
+bool UInv_GridSlot::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
+{
+	Super::NativeOnDrop(InGeometry, InDragDropEvent, InOperation);
+
+	const UInv_DragDropOperation* DragDropOperation = Cast<UInv_DragDropOperation>(InOperation);
+	if (!DragDropOperation)
+	{
+		return false;
+	}
+
+	GridSlotDropped.Broadcast(TileIndex, InOperation);
+	return true;
+
+}
+
+bool UInv_GridSlot::NativeOnDragOver(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
+{
+	Super::NativeOnDragOver(InGeometry, InDragDropEvent, InOperation);
+
+	const UInv_DragDropOperation* DragDropOperation = Cast<UInv_DragDropOperation>(InOperation);
+	if (!DragDropOperation)
+	{
+		return false;
+	}
+
+	GridSlotDragOver.Broadcast(TileIndex, InOperation);
+	return true;
+}
+
 
 void UInv_GridSlot::NativeOnMouseLeave(const FPointerEvent& InMouseEvent)
 {

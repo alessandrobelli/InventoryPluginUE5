@@ -8,11 +8,15 @@
 
 #include "Inv_GridSlot.generated.h"
 
+class UInv_HoverItem;
 class UInv_ItemPopUp;
 class UInv_InventoryItem;
 class UImage;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGridSlotEvent, int32, GridIndex, const FPointerEvent&, MouseEvent);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGridSlotDropEvent, int32, GridIndex, UDragDropOperation*, Operation);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FGridSlotDragOverEvent, int32, GridIndex, UDragDropOperation*, Operation);
+
 
 UENUM(BlueprintType)
 enum class EInv_GridSlotState : uint8
@@ -31,6 +35,8 @@ public:
 	virtual void NativeOnMouseEnter(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
 	virtual void NativeOnMouseLeave(const FPointerEvent& InMouseEvent) override;
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& InGeometry, const FPointerEvent& InMouseEvent) override;
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual bool NativeOnDragOver(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	
 	void SetTileIndex(int32 Index) { TileIndex = Index; }
 	int32 GetTileIndex() { return TileIndex; }
@@ -58,6 +64,8 @@ public:
 	FGridSlotEvent GridSlotClicked;
 	FGridSlotEvent GridSlotHovered;
 	FGridSlotEvent GridSlotUnhovered;
+	FGridSlotDropEvent GridSlotDropped;
+	FGridSlotDragOverEvent GridSlotDragOver;
 
 private:
 	int32 TileIndex{INDEX_NONE};

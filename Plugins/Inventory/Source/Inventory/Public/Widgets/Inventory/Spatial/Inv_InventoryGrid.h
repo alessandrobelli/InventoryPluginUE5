@@ -27,6 +27,9 @@ class INVENTORY_API UInv_InventoryGrid : public UUserWidget
 public:
 	virtual void NativeOnInitialized() override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
+	virtual bool NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual bool NativeOnDragOver(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
+	virtual void NativeOnDragLeave(const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation) override;
 	
 	EInv_ItemCategory GetItemCategory() const { return ItemCategory; }
 
@@ -44,8 +47,13 @@ public:
 	float GetTileSize() const { return TileSize; }
 	void ClearHoverItem();
 	void AssignHoverItem(UInv_InventoryItem* InventoryItem);
-	void OnHide(); 
+	void OnHide();
+	UFUNCTION()
+	void HandleItemDragStarted(UInv_DragDropOperation* Operation);
+	void HandleDragCancelled(class UInv_DragDropOperation* CancelledOperation);
 private:
+
+	bool HandleDrop(UDragDropOperation* Operation, const FIntPoint& Tile);
 
 	TWeakObjectPtr<UInv_InventoryComponent> InventoryComponent;
 	TWeakObjectPtr<UCanvasPanel> OwningCanvasPanel;
@@ -77,6 +85,9 @@ private:
 	
 	void AssignHoverItem(UInv_InventoryItem* InventoryItem, const int32 GridIndex, const int32 PreviousGridIndex);
 	void RemoveItemFromGrid(UInv_InventoryItem* InventoryItem, const int32 GridIndex);
+
+	UFUNCTION()
+	void OnItemRemovedFromInventory(UInv_InventoryItem* Item);
 	void UpdateTileParameters(const FVector2D& CanvasPosition, const FVector2D& MousePosition);
 	FIntPoint CalculateHoveredCoordinates(const FVector2D& CanvasPosition, const FVector2D& MousePosition) const;
 	EInv_TileQuadrant CalculateTileQuadrant(const FVector2D& CanvasPosition, const FVector2D& MousePosition) const;
@@ -138,6 +149,12 @@ private:
 	void OnGridSlotUnhovered(int32 GridIndex, const FPointerEvent& MouseEvent);
 
 	UFUNCTION()
+	void OnGridSlotDropped(int32 GridIndex, UDragDropOperation* Operation);
+
+	UFUNCTION()
+	void OnGridSlotDragOver(int32 GridIndex, UDragDropOperation* Operation);
+
+	UFUNCTION()
 	void OnPopUpMenuSplit(int32 SplitAmount, int32 Index);
 
 	UFUNCTION()
@@ -149,8 +166,11 @@ private:
 	UFUNCTION()
 	void OnInventoryMenuToggled(bool bOpen);
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category= "Inventory")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true", EditCondition = "!bAcceptAllCategories"), Category= "Inventory")
 	EInv_ItemCategory ItemCategory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"), Category = "Inventory")
+	bool bAcceptAllCategories = true;
 
 	UPROPERTY()
 	TArray<TObjectPtr<UInv_GridSlot>> GridSlots;
@@ -197,6 +217,7 @@ private:
 	bool bLastMouseWithinCanvas;
 	int32 LastHighlightedIndex;
 	FIntPoint LastHighlightedDimensions;
+	bool bIsDragging{false};
 
-	
+
 };
