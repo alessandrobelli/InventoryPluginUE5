@@ -1,5 +1,9 @@
 # Inventory System Plugin for Unreal Engine 5
 
+   ![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.6+-blue)
+   ![License](https://img.shields.io/badge/License-MIT-green)
+   ![C++](https://img.shields.io/badge/C%2B%2B-17-orange)
+
 A production-ready, multiplayer-compatible grid-based inventory system for Unreal Engine 5.6+ featuring fragment-based item composition, spatial grid UI with drag-drop functionality, equipment management, and full network replication.
 
 ## Features
