@@ -4,7 +4,7 @@
    ![License](https://img.shields.io/badge/License-MIT-green)
    ![C++](https://img.shields.io/badge/C%2B%2B-17-orange)
 
-A production-ready, multiplayer-compatible grid-based inventory system for Unreal Engine 5.6+ featuring fragment-based item composition, spatial grid UI with drag-drop functionality, equipment management, and full network replication.
+A multiplayer grid-based inventory system for Unreal Engine 5.6+ featuring fragment-based item composition, spatial grid UI with drag-drop, equipment management and network replication.
 
 ## Features
 
@@ -310,13 +310,15 @@ Contributions are welcome! To contribute:
 - Test in both single-player and multiplayer (listen server + clients)
 - Document public APIs with comments
 
+## Credits
+
+Started from the Udemy course "Unreal Engine 5 C++ Inventory Systems" by Stephen Ulibarri, extended since.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Project Status
-
-**Active Development** - This plugin is actively maintained and used in production projects.
 
 ### Recent Updates
 
